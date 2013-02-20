@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SSCategory" representedClassName="SSCategory" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="rid" attributeType="Integer 16" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SSLocation" inverseName="categories" inverseEntity="SSLocation" syncable="YES"/>
+    </entity>
+    <entity name="SSLocation" representedClassName="SSLocation" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distance" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lat" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lng" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="rid" attributeType="Integer 16" syncable="YES"/>
+        <relationship name="categories" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="locations" inverseEntity="SSCategory" syncable="YES"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SSReview" inverseName="location" inverseEntity="SSReview" syncable="YES"/>
+    </entity>
+    <entity name="SSReview" representedClassName="SSReview" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reviewer" attributeType="String" syncable="YES"/>
+        <attribute name="rid" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="score" attributeType="Float" minValueString="0" maxValueString="5" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="location" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSLocation" inverseName="reviews" inverseEntity="SSLocation" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SSCategory" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="SSLocation" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="SSReview" positionX="160" positionY="192" width="128" height="120"/>
+    </elements>
+</model>

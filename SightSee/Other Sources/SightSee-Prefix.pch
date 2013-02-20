@@ -1,0 +1,50 @@
+//
+// Prefix header for all source files of the 'SightSee' target in the 'SightSee' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <CoreLocation/CoreLocation.h>
+    // Import libraries
+    #import "ObjectiveRecord.h"
+    #import "ObjectiveSugar.h"
+    #import <AFNetworking/AFNetworking.h>
+    #import <SVProgressHUD/SVProgressHUD.h>
+    // Import helpers
+    #import "SSPreferencesManager.h"
+#endif
+
+// Logging
+#if DEBUG == 1
+#define DLog(...) NSLog(@"%s: %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+#define START_TIMER NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
+#define END_TIMER(msg) NSTimeInterval stop = [NSDate timeIntervalSinceReferenceDate]; DLog([NSString stringWithFormat:@"%@; Time = %f", msg, stop-start]);
+#else
+#define DLog(...) do { } while (0)
+#define START_TIMER do { } while (0)
+#define END_TIMER(msg) do { } while (0)
+#endif
+
+// Universal XIB's
+#define getXIB(s) ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"" #s "-iPad" :@"" #s)
+
+// iOS version
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+// GCD
+#define async_main(aBlock) dispatch_async(dispatch_get_main_queue(), aBlock)
+#define async_global(aBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), aBlock)
