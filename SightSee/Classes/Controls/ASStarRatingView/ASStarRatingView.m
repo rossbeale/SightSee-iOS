@@ -128,6 +128,9 @@
 - (void)setRating:(float)rating {
     _rating = rating;
     [self refreshStars];
+    if ([self.delegate respondsToSelector:@selector(ratingDidUpdate)]) {
+        [self.delegate ratingDidUpdate];
+    }
 }
 
 #pragma mark - Touch Detection
@@ -145,6 +148,11 @@
     }
     _rating = MAX(_minAllowedRating, _rating);
     _rating = MIN(_maxAllowedRating, _rating);
+    
+    if ([self.delegate respondsToSelector:@selector(ratingDidUpdate)]) {
+        [self.delegate ratingDidUpdate];
+    }
+    
     [self refreshStars];
 }
 

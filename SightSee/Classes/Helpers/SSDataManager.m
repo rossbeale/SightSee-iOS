@@ -33,13 +33,15 @@
     return self;
 }
 
+#pragma mark - Fetching location and then data from Server methods
+
 - (void)fetchData
 {
     // First, display an overlay...
-    [SVProgressHUD showWithStatus:@"Fetching location..." maskType:SVProgressHUDMaskTypeGradient];
+    //[SVProgressHUD showWithStatus:@"Fetching location..." maskType:SVProgressHUDMaskTypeGradient];
     
     // Then, fetch location...
-    [[SSLocationManager sharedInstance] startLocationServices];
+    //[[SSLocationManager sharedInstance] startLocationServices];
 }
 
 - (void)locationManagedDidUpdateLocationTo:(CLLocation *)location
@@ -77,6 +79,13 @@
 - (void)locationManagerDidFailWithError:(NSError *)error
 {
     //TODO: this
+}
+
+#pragma mark - Posting reviews to server management
+
+- (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location;
+{
+    [SVProgressHUD showWithStatus:@"Sending review..." maskType:SVProgressHUDMaskTypeGradient];
 }
 
 #pragma mark - Data management methods

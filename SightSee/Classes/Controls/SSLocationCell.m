@@ -14,22 +14,6 @@
 
 @implementation SSLocationCell
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if ((self = [super initWithCoder:aDecoder])) {
-        if (nil == ObservableKeys) {
-            ObservableKeys = [[NSSet alloc] initWithObjects:LocationKeyPath, nil];
-        }
-        
-        // Add observers for KVC
-        for (NSString *keyPath in ObservableKeys) {
-            [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
-        }
-    }
-    
-    return self;
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (![ObservableKeys containsObject:keyPath]) {
@@ -52,17 +36,18 @@
             self.locationDescriptionLabel.text = self.location.desc;
             self.locationDistanceLabel.frame = CGRectMake(kTextFrameLeftOffset, self.locationDescriptionLabel.frame.origin.y + self.locationDescriptionLabel.frame.size.height + ((self.location.desc.length == 0 ? 0 : kTextFrameBottomOffset)), self.locationDistanceLabel.frame.size.width, self.locationDistanceLabel.frame.size.height);
             self.locationDistanceLabel.text = [NSString stringWithFormat:@"%0.2f miles away", [self.location.distance floatValue]];
-            self.locationRatingBar.frame = CGRectMake(kTextFrameLeftOffset, self.locationDistanceLabel.frame.origin.y + self.locationDistanceLabel.frame.size.height + kTextFrameBottomOffset, self.locationRatingBar.frame.size.width, self.locationRatingBar.frame.size.height);
-            self.locationRatingBar.rating = [[self.location averageRating] floatValue];
+            
+            if ([self.location hasReviews]) {
+                self.locationNoReviewsLabel.hidden = YES;
+                self.locationRatingBar.hidden = NO;
+                self.locationRatingBar.frame = CGRectMake(kTextFrameLeftOffset, self.locationDistanceLabel.frame.origin.y + self.locationDistanceLabel.frame.size.height + kTextFrameBottomOffset, self.locationRatingBar.frame.size.width, self.locationRatingBar.frame.size.height);
+                self.locationRatingBar.rating = [[self.location averageRating] floatValue];
+            } else {
+                self.locationRatingBar.hidden = YES;
+                self.locationNoReviewsLabel.hidden = NO;
+                self.locationNoReviewsLabel.frame = CGRectMake(kTextFrameLeftOffset, self.locationDistanceLabel.frame.origin.y + self.locationDistanceLabel.frame.size.height + kTextFrameBottomOffset, self.locationNoReviewsLabel.frame.size.width, self.locationNoReviewsLabel.frame.size.height);
+            }
         }
-    }
-}
-
-- (void)dealloc
-{
-    // Tidy up and remove all the observers when the view is destroyed
-    for (NSString *keyPath in ObservableKeys) {
-        [self removeObserver:self forKeyPath:keyPath context:nil];
     }
 }
 
@@ -70,16 +55,13 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.locationRatingBar.canEdit = NO;
-    
-    [self.locationNameLabel setFont:[UIFont fontWithName:@"PTSans-Bold" size:self.locationNameLabel.font.pointSize]];
-    [self.locationDescriptionLabel setFont:[UIFont fontWithName:@"PTSans-Regular" size:self.locationDescriptionLabel.font.pointSize]];
-    [self.locationDistanceLabel setFont:[UIFont fontWithName:@"PTSans-Regular" size:self.locationDistanceLabel.font.pointSize]];
 }
 
 - (void)prepareForReuse
 {
-    
+    [super prepareForReuse];
 }
 
 + (CGFloat)heightForCellWithLocation:(SSLocation *)location

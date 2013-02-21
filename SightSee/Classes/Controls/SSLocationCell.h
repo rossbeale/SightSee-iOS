@@ -8,22 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
-#import "SSLocation.h"
+#import "SSBaseCell.h"
 
-static NSString * const LocationKeyPath = @"location";
-
-@interface SSLocationCell : UITableViewCell {
-@protected
-    NSSet *ObservableKeys;
-}
-
-@property (nonatomic, weak) SSLocation *location;
+@interface SSLocationCell : SSBaseCell
 
 // UI elements
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationDistanceLabel;
 @property (weak, nonatomic) IBOutlet ASStarRatingView *locationRatingBar;
+@property (weak, nonatomic) IBOutlet UILabel *locationNoReviewsLabel;
 
 + (CGFloat)heightForCellWithLocation:(SSLocation *)location;
 

@@ -57,6 +57,16 @@
     return parsedLocation;
 }
 
+- (BOOL)hasDescription
+{
+    return ([self.desc length] > 0);
+}
+
+- (BOOL)hasReviews
+{
+    return ([self.reviews count] > 0);
+}
+
 - (NSNumber *)averageRating
 {
     return [self.reviews valueForKeyPath:@"@avg.score"];

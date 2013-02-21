@@ -79,6 +79,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"LocationInformation"]) {
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        
         SSLocationDetailViewController *destinationViewController = (SSLocationDetailViewController *)segue.destinationViewController;
         destinationViewController.hidesBottomBarWhenPushed = YES;
         destinationViewController.location = _tempLocation;

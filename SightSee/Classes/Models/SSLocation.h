@@ -8,6 +8,10 @@
 
 + (id)createOfFindLocationWithJSON:(id)locationJSON;
 
+- (BOOL)hasDescription;
+
+- (BOOL)hasReviews;
+
 - (NSNumber *)averageRating;
 
 @end

@@ -76,9 +76,11 @@
                                     }];
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{
-                                    UITextAttributeFont : [UIFont fontWithName:@"PTSans-Bold" size:11.0]
+                                    UITextAttributeFont : [UIFont fontWithName:@"PTSans-Bold" size:12.0]
                                     } forState:UIControlStateNormal];
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(1, 1) forBarMetrics:UIBarMetricsDefault];;
+    
+    [[UIBarButtonItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, 1) forBarMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(1, 1) forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)_setupTabBarAppearance

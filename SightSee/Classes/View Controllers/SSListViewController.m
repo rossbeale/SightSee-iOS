@@ -43,6 +43,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"LocationInformation"]) {
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        
         SSLocationDetailViewController *destinationViewController = (SSLocationDetailViewController *)segue.destinationViewController;
         destinationViewController.hidesBottomBarWhenPushed = YES;
         destinationViewController.location = _tempLocation;
@@ -130,17 +134,6 @@
     SSLocation *location = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     _tempLocation = location;
     return indexPath;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end

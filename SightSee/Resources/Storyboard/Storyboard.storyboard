@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Li4-Tg-hL5">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" id="Li4-Tg-hL5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <connections>
                                     <outlet property="delegate" destination="did-yu-RlT" id="Hxa-DT-nPx"/>
@@ -52,19 +52,146 @@
         <scene sceneID="HGp-DQ-yzb">
             <objects>
                 <tableViewController id="7og-zC-LVQ" customClass="SSLocationDetailViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Cep-Kj-UWA">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cep-Kj-UWA">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YWi-CJ-tUG">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapViewCell" rowHeight="150" id="YWi-CJ-tUG" customClass="SSMapViewCell">
+                                <rect key="frame" x="0.0" y="46" width="320" height="151"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" id="vwY-QX-ttj">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="170"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </mapView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="mapView" destination="vwY-QX-ttj" id="rEn-C2-67g"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailCell" id="1LC-ZO-cdi" customClass="SSBaseCell">
+                                <rect key="frame" x="0.0" y="197" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p2u-Hy-cOZ">
+                                            <rect key="frame" x="79" y="13" width="201" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVz-Kl-a7q">
+                                            <rect key="frame" x="22" y="13" width="51" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.40548015510948904" blue="0.65570825729927007" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataLabel" destination="p2u-Hy-cOZ" id="YQv-Hw-jJ8"/>
+                                    <outlet property="detaildataLabel" destination="fVz-Kl-a7q" id="B1j-Yy-PGm"/>
+                                    <outletCollection property="boldLabels" destination="fVz-Kl-a7q" id="QGM-e5-lRi"/>
+                                    <outletCollection property="boldLabels" destination="p2u-Hy-cOZ" id="FTJ-hG-WrG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DescriptionCell" id="eXr-1g-0HA" customClass="SSDescriptionCell">
+                                <rect key="frame" x="0.0" y="241" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IqG-4C-bGo">
+                                            <rect key="frame" x="12" y="11" width="278" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="IqG-4C-bGo" id="GNT-z2-LMf"/>
+                                    <outletCollection property="standardLabels" destination="IqG-4C-bGo" id="zzt-KT-BPW"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReviewInformationCell" id="aYG-F6-HPr" customClass="SSReviewInformationCell">
+                                <rect key="frame" x="0.0" y="285" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not Yet Reviewed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FAL-OB-5Jx">
+                                            <rect key="frame" x="0.0" y="11" width="300" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" id="N3I-fa-ezk">
+                                            <rect key="frame" x="35" y="11" width="230" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="qMP-TW-CdH" customClass="ASStarRatingView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2 reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eh2-my-Xwi">
+                                                    <rect key="frame" x="158" y="1" width="72" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="noReviewsLabel" destination="FAL-OB-5Jx" id="3IX-f9-xl7"/>
+                                    <outlet property="ratingView" destination="qMP-TW-CdH" id="ntn-79-oJK"/>
+                                    <outlet property="ratingsDisplayView" destination="N3I-fa-ezk" id="CPO-2H-sBX"/>
+                                    <outlet property="reviewCountLabel" destination="eh2-my-Xwi" id="UqM-ml-JXa"/>
+                                    <outletCollection property="standardLabels" destination="FAL-OB-5Jx" id="F2r-0K-gcU"/>
+                                    <outletCollection property="standardLabels" destination="eh2-my-Xwi" id="Kec-yg-MYg"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActionCell" id="2N5-1m-Bth" customClass="SSBaseCell">
+                                <rect key="frame" x="0.0" y="329" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vZ4-js-tex">
+                                            <rect key="frame" x="12" y="13" width="248" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataLabel" destination="vZ4-js-tex" id="Zy8-6y-wfk"/>
+                                    <outletCollection property="boldLabels" destination="vZ4-js-tex" id="l8q-fE-PHY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -74,10 +201,87 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="HYs-qH-19l"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="hgY-fS-h3n" kind="push" identifier="WriteReview" id="na2-bM-bqz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1b-Oy-t5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1466" y="-20"/>
+        </scene>
+        <!--Compose Review View Controller-->
+        <scene sceneID="5Ll-0M-bZ7">
+            <objects>
+                <viewController id="hgY-fS-h3n" customClass="SSComposeReviewViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0eL-ki-FwV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Keyboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vbz-ya-F6Y">
+                                <rect key="frame" x="0.0" y="288" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="Sem-VI-jsG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="agn-z9-li6" customClass="ASStarRatingView">
+                                        <rect key="frame" x="64" y="18" width="192" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap a star to rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dFE-la-mvh">
+                                        <rect key="frame" x="51" y="45" width="218" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.89986313868613144" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name:" minimumFontSize="17" id="Oef-L6-eSm">
+                                <rect key="frame" x="-2" y="66" width="324" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hgY-fS-h3n" id="oVX-KN-uwP"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="m9u-Ha-jPL" customClass="SSPlaceholderTextView">
+                                <rect key="frame" x="-2" y="108" width="322" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Review (optional):"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SN3-Xu-Kln">
+                        <barButtonItem key="rightBarButtonItem" title="Review" id="3BR-4b-0ef">
+                            <connections>
+                                <action selector="sendReviewButtonPressed:" destination="hgY-fS-h3n" id="T0u-tt-jh4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameInputTextField" destination="Oef-L6-eSm" id="u8B-AM-isq"/>
+                        <outlet property="rateHelperLabel" destination="dFE-la-mvh" id="7Iv-O4-eCN"/>
+                        <outlet property="ratingView" destination="agn-z9-li6" id="zEu-iZ-p5Q"/>
+                        <outlet property="reviewInputTextField" destination="m9u-Ha-jPL" id="Lzy-ut-xvW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2V-eD-BfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="334"/>
         </scene>
         <!--Navigation Controller - List-->
         <scene sceneID="tYl-Fi-4Vd">
@@ -104,11 +308,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" id="tGc-dx-ccm" customClass="SSLocationCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" id="tGc-dx-ccm" customClass="SSLocationCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="111"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mbf-cw-qTP">
@@ -132,6 +336,13 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not Yet Reviewed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l2Q-dc-5Ph">
+                                            <rect key="frame" x="10" y="84" width="300" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                         <view contentMode="scaleToFill" id="OT0-zy-ubJ" customClass="ASStarRatingView">
                                             <rect key="frame" x="10" y="84" width="105" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,7 +355,13 @@
                                     <outlet property="locationDescriptionLabel" destination="aT0-de-yKG" id="sCw-M8-Mid"/>
                                     <outlet property="locationDistanceLabel" destination="7sh-W6-es3" id="qeq-9w-pKa"/>
                                     <outlet property="locationNameLabel" destination="Mbf-cw-qTP" id="0kD-3M-h4E"/>
+                                    <outlet property="locationNoReviewsLabel" destination="l2Q-dc-5Ph" id="82W-8S-QDL"/>
                                     <outlet property="locationRatingBar" destination="OT0-zy-ubJ" id="8Jp-Nr-mGb"/>
+                                    <outletCollection property="boldLabels" destination="Mbf-cw-qTP" id="rDT-qB-6Pk"/>
+                                    <outletCollection property="standardLabels" destination="aT0-de-yKG" id="S4s-Dv-ggT"/>
+                                    <outletCollection property="standardLabels" destination="7sh-W6-es3" id="qvL-kR-kAp"/>
+                                    <outletCollection property="standardLabels" destination="l2Q-dc-5Ph" id="0JL-uJ-TqG"/>
+                                    <segue destination="7og-zC-LVQ" kind="push" identifier="LocationInformation" id="PVI-iN-pog"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -155,9 +372,6 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="List" image="list_icon.png" id="V9Q-97-tai"/>
                     <navigationItem key="navigationItem" title="SightSee" id="BlO-Dr-WPW"/>
-                    <connections>
-                        <segue destination="7og-zC-LVQ" kind="push" identifier="LocationInformation" id="Zg5-V5-Fll"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gm-Ie-Od1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,28 +406,72 @@
         <class className="ASStarRatingView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ASStarRatingView.h"/>
         </class>
+        <class className="SSBaseCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBaseCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detaildataLabel" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="boldLabels" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="standardLabels" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SSComposeReviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSComposeReviewViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendReviewButtonPressed:"/>
+                <relationship kind="outlet" name="nameInputTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="rateHelperLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingView" candidateClass="ASStarRatingView"/>
+                <relationship kind="outlet" name="reviewInputTextField" candidateClass="SSPlaceholderTextView"/>
+            </relationships>
+        </class>
         <class className="SSCoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCoreDataTableViewController.h"/>
+        </class>
+        <class className="SSDescriptionCell" superclassName="SSBaseCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSDescriptionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="SSListViewController" superclassName="SSCoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSListViewController.h"/>
         </class>
-        <class className="SSLocationCell" superclassName="UITableViewCell">
+        <class className="SSLocationCell" superclassName="SSBaseCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLocationCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="locationDescriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="locationDistanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="locationNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationNoReviewsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="locationRatingBar" candidateClass="ASStarRatingView"/>
             </relationships>
         </class>
         <class className="SSLocationDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLocationDetailViewController.h"/>
         </class>
+        <class className="SSMapViewCell" superclassName="SSBaseCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMapViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="SSMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMapViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="SSPlaceholderTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSPlaceholderTextView.h"/>
+        </class>
+        <class className="SSReviewInformationCell" superclassName="SSBaseCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSReviewInformationCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="noReviewsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingView" candidateClass="ASStarRatingView"/>
+                <relationship kind="outlet" name="ratingsDisplayView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="reviewCountLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SSSavingTabBarController" superclassName="UITabBarController">
@@ -226,6 +484,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zg5-V5-Fll"/>
+        <segue reference="2IQ-0L-Zf8"/>
     </inferredMetricsTieBreakers>
 </document>

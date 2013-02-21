@@ -9,8 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "SSLocation.h"
 
-@interface SSLocationDetailViewController : UITableViewController
+typedef enum {
+    kCellTypeMapView = 100,
+    kCellTypeName = 110,
+    kCellTypeDescription = 120,
+    kCellTypeDistance = 130,
+    kCellTypeReview = 140
+} kCellType;
+
+@interface SSLocationDetailViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, weak) SSLocation *location;
+
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end

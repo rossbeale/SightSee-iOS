@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "SSLocationManager.h"
 #import "SSSightSeeAPIHTTPClient.h"
+#import "SSReview.h"
 
 @interface SSDataManager : NSObject <SSLocationManagerDelegate>
 
 + (id)sharedInstance;
 
 - (void)fetchData;
+
+- (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location;
 
 @end
