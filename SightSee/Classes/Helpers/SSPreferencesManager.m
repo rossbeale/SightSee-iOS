@@ -8,6 +8,8 @@
 
 #import "SSPreferencesManager.h"
 
+#define kUserDefaultKeyDeviceIdentifier @"deviceIdentifierKey"
+
 @implementation SSPreferencesManager
 
 #pragma mark - NSUserDefaults
@@ -28,6 +30,25 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:value forKey:[self userDefaultsKeyNameForKey:key]];
     [ud synchronize];
+}
+
+#pragma mark - UDID
+
++ (NSString *)deviceIdentifier
+{
+    NSString *deviceId;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    deviceId = [userDefaults objectForKey:kUserDefaultKeyDeviceIdentifier];
+    
+    if (!deviceId) {
+        CFUUIDRef theUUID = CFUUIDCreate(NULL);
+        deviceId = (__bridge_transfer NSString*)CFUUIDCreateString(NULL, theUUID);
+        CFRelease(theUUID);
+        [userDefaults setObject:deviceId forKey:kUserDefaultKeyDeviceIdentifier];
+        [userDefaults synchronize];
+    }
+    
+    return deviceId;
 }
 
 @end

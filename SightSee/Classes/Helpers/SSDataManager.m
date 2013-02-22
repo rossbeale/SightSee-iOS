@@ -11,6 +11,8 @@
 #import "NSData+AES256.h"
 #import "NSData+Base64.h"
 #import "NSString+Base64.h"
+#import "SSPreferencesManager.h"
+#import "NSString+SHA1.h"
 
 @implementation SSDataManager
 
@@ -110,7 +112,7 @@
 
 - (id)decryptJSON:(id)JSON
 {
-    NSString *AESKey = @"1";
+    NSString *AESKey = [[SSPreferencesManager deviceIdentifier] SHA1];
     
     NSData *decodedData = [JSON base64DecodedData];
     NSData *decryptedData = [decodedData AES256DecryptWithKeyString:AESKey andIv:nil];

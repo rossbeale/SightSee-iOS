@@ -18,4 +18,6 @@ typedef enum {
 + (id)userDefaultForKey:(kUserDefaultsKey)key;
 + (void)setUserDefaultValue:(id)value forKey:(kUserDefaultsKey)key;
 
++ (NSString *)deviceIdentifier;
+
 @end

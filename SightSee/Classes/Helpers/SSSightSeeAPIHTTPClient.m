@@ -7,6 +7,8 @@
 //
 
 #import "SSSightSeeAPIHTTPClient.h"
+#import "SSPreferencesManager.h"
+#import "NSString+SHA1.h"
 
 #define kDiffbotAPIBaseURLString @"http://localhost:3000"
 
@@ -47,12 +49,12 @@
 {
     NSNumber *lat = [NSNumber numberWithDouble:location.coordinate.latitude];
     NSNumber *lng = [NSNumber numberWithDouble:location.coordinate.longitude];
-    [self getPath:@"locations" parameters:@{@"lat" : lat, @"lng" : lng, @"uid" : @"1"} success:success failure:failure];
+    [self getPath:@"locations" parameters:@{@"lat" : lat, @"lng" : lng, @"uid" : [[SSPreferencesManager deviceIdentifier] SHA1]} success:success failure:failure];
 }
 
 - (void)postReviewWithName:(NSString *)name andReview:(NSString *)review andScore:(NSString *)score forLocation:(NSString *)locationID success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
-    [self postPath:@"reviews" parameters:@{@"review_location" : locationID, @"reviewer_name" : name, @"review_comment" : review, @"review_score" : score, @"uid" : @"1"} success:success failure:failure];
+    [self postPath:@"reviews" parameters:@{@"review_location" : locationID, @"reviewer_name" : name, @"review_comment" : review, @"review_score" : score, @"uid" : [[SSPreferencesManager deviceIdentifier] SHA1]} success:success failure:failure];
 }
 
 @end
