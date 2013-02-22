@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Ross Beale. All rights reserved.
 //
 
-#import "SSBaseCell.h"
+#import "SSBaseLocationCell.h"
 
-@interface SSDescriptionCell : SSBaseCell
+@interface SSDescriptionCell : SSBaseLocationCell
 
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 

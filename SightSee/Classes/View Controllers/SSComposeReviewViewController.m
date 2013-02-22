@@ -22,13 +22,26 @@
     [self.ratingView setRating:0];
     self.ratingView.delegate = self;
     [self.nameInputTextField becomeFirstResponder];
-    //[self.reviewInputTextField setPlaceholder:@"ss"];
+    
+    [self setupFonts];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)popBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)setupFonts
+{
+    [self.rateHelperLabel setFont:[UIFont fontWithName:@"PTSans-Regular" size:self.rateHelperLabel.font.pointSize]];
+    [self.nameInputTextField setFont:[UIFont fontWithName:@"PTSans-Regular" size:self.nameInputTextField.font.pointSize]];
+    [self.reviewInputTextField setFont:[UIFont fontWithName:@"PTSans-Regular" size:self.reviewInputTextField.font.pointSize]];
 }
 
 - (void)focusNameInputField
@@ -87,8 +100,13 @@
 {
     if ([self validateFormValues]) {
         SSReview *createdReview = [SSReview create:@{@"score": [NSNumber numberWithFloat:self.ratingView.rating], @"reviewer" : [self validatedNameText], @"comment" : [self validatedReviewText]}];
-        [[SSDataManager sharedInstance] postReviewToServer:createdReview forLocation:self.location];
-        //TODO: pop back
+        [[SSDataManager sharedInstance] postReviewToServer:createdReview forLocation:self.location withCompletion:^(BOOL success) {
+            if (success) {
+                [self popBack];
+            } else {
+                //TODO: not a success
+            }
+        }];
     }
 }
 

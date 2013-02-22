@@ -11,12 +11,14 @@
 #import "SSSightSeeAPIHTTPClient.h"
 #import "SSReview.h"
 
+typedef void (^CompletionWithBooleanBlock)(BOOL success);
+
 @interface SSDataManager : NSObject <SSLocationManagerDelegate>
 
 + (id)sharedInstance;
 
 - (void)fetchData;
 
-- (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location;
+- (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location withCompletion:(CompletionWithBooleanBlock)completionBlock;
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSBaseCell.h"
+#import "SSBaseLocationCell.h"
 #import "ASStarRatingView.h"
 
-@interface SSReviewInformationCell : SSBaseCell
+@interface SSReviewInformationCell : SSBaseLocationCell
 
 // UI elements
 @property (weak, nonatomic) IBOutlet UIView *ratingsDisplayView;

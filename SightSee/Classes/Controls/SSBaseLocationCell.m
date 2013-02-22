@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Ross Beale. All rights reserved.
 //
 
-#import "SSBaseCell.h"
+#import "SSBaseLocationCell.h"
 
-@implementation SSBaseCell
+@implementation SSBaseLocationCell
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

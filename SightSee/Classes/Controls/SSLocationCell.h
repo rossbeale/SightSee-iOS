@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
-#import "SSBaseCell.h"
+#import "SSBaseLocationCell.h"
 
-@interface SSLocationCell : SSBaseCell
+@interface SSLocationCell : SSBaseLocationCell
 
 // UI elements
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;

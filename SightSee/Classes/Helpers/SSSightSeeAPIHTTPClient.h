@@ -12,4 +12,6 @@
 
 - (void)getLocationsWithLocation:(CLLocation *)location success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+- (void)postReviewWithName:(NSString *)name andReview:(NSString *)review andScore:(NSString *)score forLocation:(NSString *)locationID success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

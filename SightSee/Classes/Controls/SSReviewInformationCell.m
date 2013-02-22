@@ -19,18 +19,13 @@
     
     if ([LocationKeyPath isEqualToString:keyPath])
     {
-        id oldObj = [change objectForKey:NSKeyValueChangeOldKey];
-        id newObj = [change objectForKey:NSKeyValueChangeNewKey];
-        
-        if (![oldObj isEqual:newObj]) {
-            if ([self.location hasReviews]) {
-                self.noReviewsLabel.hidden = YES;
-                self.ratingsDisplayView.hidden = NO;
-                self.ratingView.rating = [[self.location averageRating] floatValue];
-            } else {
-                self.ratingsDisplayView.hidden = YES;
-                self.noReviewsLabel.hidden = NO;
-            }
+        if ([self.location hasReviews]) {
+            self.noReviewsLabel.hidden = YES;
+            self.ratingsDisplayView.hidden = NO;
+            self.ratingView.rating = [[self.location averageRating] floatValue];
+        } else {
+            self.ratingsDisplayView.hidden = YES;
+            self.noReviewsLabel.hidden = NO;
         }
     }
 }

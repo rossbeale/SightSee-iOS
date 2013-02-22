@@ -17,7 +17,9 @@ typedef enum {
     kCellTypeReview = 140
 } kCellType;
 
-@interface SSLocationDetailViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface SSLocationDetailViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+    BOOL _secondLoad;
+}
 
 @property (nonatomic, weak) SSLocation *location;
 

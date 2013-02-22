@@ -57,7 +57,6 @@
         if ([JSON isKindOfClass:[NSDictionary class]]) {
             DLog(@"Encrypted JSON");
             JSON = [self decryptJSON:JSON[@"response"]];
-            NSLog(@"%@", JSON);
         } else {
             DLog(@"Unencrypted JSON");
         }
@@ -83,9 +82,28 @@
 
 #pragma mark - Posting reviews to server management
 
-- (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location;
+- (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location withCompletion:(CompletionWithBooleanBlock)completionBlock;
 {
     [SVProgressHUD showWithStatus:@"Sending review..." maskType:SVProgressHUDMaskTypeGradient];
+    
+    [[SSSightSeeAPIHTTPClient sharedInstance] postReviewWithName:review.reviewer andReview:review.comment andScore:[review.score stringValue] forLocation:[location.rid stringValue] success:^(AFHTTPRequestOperation *operation, id JSON) {
+        
+        DLog(@"JSON: %@", JSON);
+        if ([JSON[@"response"] isEqualToString:@"success"]) {
+            NSNumber *newReviewID = [NSNumber numberWithInteger:[JSON[@"id"] integerValue]];
+            [review setRid:newReviewID];
+            [review setLocation:location];
+            [review save];
+            completionBlock(YES);
+            [SVProgressHUD showSuccessWithStatus:@"Sent!"];
+        } else {
+            //TODO: duplicate error
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //TODO: failure
+    }];
+
 }
 
 #pragma mark - Data management methods

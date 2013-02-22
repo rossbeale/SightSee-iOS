@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B293613ED868479C8D77ED22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8035BA2294F2E92E6E3CD /* libPods.a */; };
+		D50022AC16D78BD300105242 /* SSLocationReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50022AB16D78BD300105242 /* SSLocationReviewsViewController.m */; };
+		D50022AF16D78D5200105242 /* SSReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50022AE16D78D5200105242 /* SSReviewCell.m */; };
 		D565C59816D3796B00E53194 /* SSLocationMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */; };
 		D565C5A116D38CFA00E53194 /* SSLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C5A016D38CFA00E53194 /* SSLocationDetailViewController.m */; };
 		D5BCA78716D238DC00695882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78616D238DC00695882 /* UIKit.framework */; };
@@ -61,10 +63,9 @@
 		D5E3EE5816D4052D00E81918 /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E3EE5016D4052D00E81918 /* ASStarRatingView.m */; };
 		D5FE08CA16D61F3E0008B681 /* SSMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE08C916D61F3E0008B681 /* SSMapViewCell.m */; };
 		D5FE08CD16D61F590008B681 /* SSReviewInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE08CC16D61F590008B681 /* SSReviewInformationCell.m */; };
-		D5FE4F5416D6565000FCF71B /* SSBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5316D6565000FCF71B /* SSBaseCell.m */; };
+		D5FE4F5416D6565000FCF71B /* SSBaseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5316D6565000FCF71B /* SSBaseLocationCell.m */; };
 		D5FE4F5816D65F3000FCF71B /* SSDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5716D65F3000FCF71B /* SSDescriptionCell.m */; };
 		D5FE4F5B16D66AB400FCF71B /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5A16D66AB400FCF71B /* MKMapView+ZoomLevel.m */; };
-		D5FE4F5E16D66B8D00FCF71B /* SSLocationReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5D16D66B8D00FCF71B /* SSLocationReviewsViewController.m */; };
 		D5FE4F6116D673FE00FCF71B /* SSComposeReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F6016D673FE00FCF71B /* SSComposeReviewViewController.m */; };
 		D5FE4F6416D6777B00FCF71B /* SSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F6316D6777A00FCF71B /* SSPlaceholderTextView.m */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,10 @@
 
 /* Begin PBXFileReference section */
 		9CA8035BA2294F2E92E6E3CD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D50022AA16D78BD300105242 /* SSLocationReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationReviewsViewController.h; sourceTree = "<group>"; };
+		D50022AB16D78BD300105242 /* SSLocationReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationReviewsViewController.m; sourceTree = "<group>"; };
+		D50022AD16D78D5200105242 /* SSReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSReviewCell.h; sourceTree = "<group>"; };
+		D50022AE16D78D5200105242 /* SSReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSReviewCell.m; sourceTree = "<group>"; };
 		D565C59616D3796B00E53194 /* SSLocationMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationMapAnnotation.h; sourceTree = "<group>"; };
 		D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationMapAnnotation.m; sourceTree = "<group>"; };
 		D565C59F16D38CFA00E53194 /* SSLocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationDetailViewController.h; sourceTree = "<group>"; };
@@ -174,14 +179,12 @@
 		D5FE08C916D61F3E0008B681 /* SSMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMapViewCell.m; sourceTree = "<group>"; };
 		D5FE08CB16D61F590008B681 /* SSReviewInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSReviewInformationCell.h; sourceTree = "<group>"; };
 		D5FE08CC16D61F590008B681 /* SSReviewInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSReviewInformationCell.m; sourceTree = "<group>"; };
-		D5FE4F5216D6565000FCF71B /* SSBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBaseCell.h; sourceTree = "<group>"; };
-		D5FE4F5316D6565000FCF71B /* SSBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBaseCell.m; sourceTree = "<group>"; };
+		D5FE4F5216D6565000FCF71B /* SSBaseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBaseLocationCell.h; sourceTree = "<group>"; };
+		D5FE4F5316D6565000FCF71B /* SSBaseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBaseLocationCell.m; sourceTree = "<group>"; };
 		D5FE4F5616D65F3000FCF71B /* SSDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDescriptionCell.h; sourceTree = "<group>"; };
 		D5FE4F5716D65F3000FCF71B /* SSDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDescriptionCell.m; sourceTree = "<group>"; };
 		D5FE4F5916D66AB400FCF71B /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		D5FE4F5A16D66AB400FCF71B /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
-		D5FE4F5C16D66B8D00FCF71B /* SSLocationReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationReviewsViewController.h; sourceTree = "<group>"; };
-		D5FE4F5D16D66B8D00FCF71B /* SSLocationReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationReviewsViewController.m; sourceTree = "<group>"; };
 		D5FE4F5F16D673FD00FCF71B /* SSComposeReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSComposeReviewViewController.h; sourceTree = "<group>"; };
 		D5FE4F6016D673FE00FCF71B /* SSComposeReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSComposeReviewViewController.m; sourceTree = "<group>"; };
 		D5FE4F6216D6777A00FCF71B /* SSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPlaceholderTextView.h; sourceTree = "<group>"; };
@@ -286,8 +289,8 @@
 				D5BCA86D16D2828500695882 /* SSCoreDataTableViewController.m */,
 				D565C59616D3796B00E53194 /* SSLocationMapAnnotation.h */,
 				D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */,
-				D5FE4F5216D6565000FCF71B /* SSBaseCell.h */,
-				D5FE4F5316D6565000FCF71B /* SSBaseCell.m */,
+				D5FE4F5216D6565000FCF71B /* SSBaseLocationCell.h */,
+				D5FE4F5316D6565000FCF71B /* SSBaseLocationCell.m */,
 				D5E3EE4816D3E44900E81918 /* SSLocationCell.h */,
 				D5E3EE4916D3E44900E81918 /* SSLocationCell.m */,
 				D5FE08C816D61F3E0008B681 /* SSMapViewCell.h */,
@@ -298,6 +301,8 @@
 				D5FE4F5716D65F3000FCF71B /* SSDescriptionCell.m */,
 				D5FE4F6216D6777A00FCF71B /* SSPlaceholderTextView.h */,
 				D5FE4F6316D6777A00FCF71B /* SSPlaceholderTextView.m */,
+				D50022AD16D78D5200105242 /* SSReviewCell.h */,
+				D50022AE16D78D5200105242 /* SSReviewCell.m */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -354,10 +359,10 @@
 				D5BCA81716D268F100695882 /* SSMapViewController.m */,
 				D565C59F16D38CFA00E53194 /* SSLocationDetailViewController.h */,
 				D565C5A016D38CFA00E53194 /* SSLocationDetailViewController.m */,
-				D5FE4F5C16D66B8D00FCF71B /* SSLocationReviewsViewController.h */,
-				D5FE4F5D16D66B8D00FCF71B /* SSLocationReviewsViewController.m */,
 				D5FE4F5F16D673FD00FCF71B /* SSComposeReviewViewController.h */,
 				D5FE4F6016D673FE00FCF71B /* SSComposeReviewViewController.m */,
+				D50022AA16D78BD300105242 /* SSLocationReviewsViewController.h */,
+				D50022AB16D78BD300105242 /* SSLocationReviewsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -665,12 +670,13 @@
 				D5DC134116D5280C00FE8740 /* NSString+Base64.m in Sources */,
 				D5FE08CA16D61F3E0008B681 /* SSMapViewCell.m in Sources */,
 				D5FE08CD16D61F590008B681 /* SSReviewInformationCell.m in Sources */,
-				D5FE4F5416D6565000FCF71B /* SSBaseCell.m in Sources */,
+				D5FE4F5416D6565000FCF71B /* SSBaseLocationCell.m in Sources */,
 				D5FE4F5816D65F3000FCF71B /* SSDescriptionCell.m in Sources */,
 				D5FE4F5B16D66AB400FCF71B /* MKMapView+ZoomLevel.m in Sources */,
-				D5FE4F5E16D66B8D00FCF71B /* SSLocationReviewsViewController.m in Sources */,
 				D5FE4F6116D673FE00FCF71B /* SSComposeReviewViewController.m in Sources */,
 				D5FE4F6416D6777B00FCF71B /* SSPlaceholderTextView.m in Sources */,
+				D50022AC16D78BD300105242 /* SSLocationReviewsViewController.m in Sources */,
+				D50022AF16D78D5200105242 /* SSReviewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

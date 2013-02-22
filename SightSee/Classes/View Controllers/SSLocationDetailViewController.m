@@ -11,6 +11,7 @@
 #import "SSReviewInformationCell.h"
 #import "SSDescriptionCell.h"
 #import "SSComposeReviewViewController.h"
+#import "SSLocationReviewsViewController.h"
 
 @interface SSLocationDetailViewController ()
 
@@ -18,11 +19,25 @@
 
 @implementation SSLocationDetailViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (_secondLoad) {
+        [self.tableView reloadData];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title = self.location.name;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    _secondLoad = YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -34,6 +49,12 @@
         
         SSComposeReviewViewController *destinationViewController = (SSComposeReviewViewController *)segue.destinationViewController;
         destinationViewController.location = self.location;
+        
+    } else if ([segue.identifier isEqualToString:@"ViewReviews"]) {
+        
+        SSLocationReviewsViewController *destinationViewController = (SSLocationReviewsViewController *)segue.destinationViewController;
+        destinationViewController.location = self.location;
+        
     }
 }
 
@@ -123,7 +144,7 @@
             
         default:
         {
-            SSBaseCell *cell = (SSBaseCell *)[tableView dequeueReusableCellWithIdentifier:@"ActionCell" forIndexPath:indexPath];
+            SSBaseLocationCell *cell = (SSBaseLocationCell *)[tableView dequeueReusableCellWithIdentifier:@"ActionCell" forIndexPath:indexPath];
             switch (indexPath.row) {
                 case 0:
                     if ([self.location hasReviews]) {
@@ -157,7 +178,7 @@
             break;
         case kCellTypeName:
         {
-            SSBaseCell *cell = (SSBaseCell *)[self.tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+            SSBaseLocationCell *cell = (SSBaseLocationCell *)[self.tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
             cell.detaildataLabel.text = @"Name";
             cell.dataLabel.text = self.location.name;
             return cell;
@@ -175,7 +196,7 @@
             break;
         case kCellTypeDistance:
         {
-            SSBaseCell *cell = (SSBaseCell *)[self.tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+            SSBaseLocationCell *cell = (SSBaseLocationCell *)[self.tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
             cell.detaildataLabel.text = @"Distance";
             cell.dataLabel.text = [NSString stringWithFormat:@"%0.2f miles away", [self.location.distance floatValue]];
             return cell;
@@ -205,6 +226,7 @@
         {
             if ([self.location hasReviews]) {
                 // View reviews
+                [self performSegueWithIdentifier:@"ViewReviews" sender:self];
             } else {
                 // Compose a review
                 [self performSegueWithIdentifier:@"WriteReview" sender:self];

@@ -11,7 +11,7 @@
 
 static NSString * const LocationKeyPath = @"location";
 
-@interface SSBaseCell : UITableViewCell {
+@interface SSBaseLocationCell : UITableViewCell {
 @protected
     NSSet *ObservableKeys;
 }

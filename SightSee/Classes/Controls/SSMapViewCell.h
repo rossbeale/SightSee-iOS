@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "SSBaseCell.h"
+#import "SSBaseLocationCell.h"
 
-@interface SSMapViewCell : SSBaseCell <MKMapViewDelegate>
+@interface SSMapViewCell : SSBaseLocationCell <MKMapViewDelegate>
 
 // UI elements
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
