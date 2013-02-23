@@ -12,7 +12,6 @@
 #import "SSDataManager.h"
 
 #define kCategoryTableView 100
-#define kOrderTableView 200
 
 @interface SSListViewController ()
 
@@ -238,7 +237,6 @@
     if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
         SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
         return [SSLocation where:[NSPredicate predicateWithFormat:@"ANY categories = %@ AND (name contains[cd] %@ OR desc contains[cd] %@)", category, searchText, searchText]];
-//        return [SSLocation whereFormat:@"ANY categories == %@", category];
     } else {
         return [SSLocation whereFormat:@"name contains[cd] '%@' OR desc contains[cd] '%@'", searchText, searchText];
     }

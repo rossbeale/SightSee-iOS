@@ -11,6 +11,8 @@
 #import "SSLocation.h"
 #import "SSDataManager.h"
 
+#define kCategoryTableView 100
+
 @interface SSMapViewController ()
 /**
  * REQUIRED method, must be overriden by subclasses. Return the name of the entity
@@ -24,6 +26,48 @@
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize context = _context;
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupMapView) name:kUpdateNotificationName object:nil];
+    
+    [self setupMapView];
+    [self setupFetchedResultsController];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.129 green:0.459 blue:0.000 alpha:1.000];
+    if (!_hasPushed) {
+        [self setupMapView];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"LocationInformation"]) {
+        
+        _hasPushed = YES;
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        
+        SSLocationDetailViewController *destinationViewController = (SSLocationDetailViewController *)segue.destinationViewController;
+        destinationViewController.hidesBottomBarWhenPushed = YES;
+        destinationViewController.location = _tempLocation;
+        _tempLocation = nil;
+    }
+}
+
+#pragma mark - Core Data setup
+
 - (NSManagedObjectContext *)context
 {
     // Lazy getter.
@@ -36,8 +80,6 @@
     
     return _context;
 }
-
-#pragma mark - Core Data setup
 
 - (NSString *)entityName
 {
@@ -55,39 +97,13 @@
     return @[sort];
 }
 
-- (void)viewDidLoad
+- (NSPredicate *)predicate
 {
-    [super viewDidLoad];
-    
-    [self setupMapView];
-    [self setupFetchedResultsController];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.129 green:0.459 blue:0.000 alpha:1.000];
-    if (_hasMoved) {
-        [self setupMapView];
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"LocationInformation"]) {
-        
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:nil action:nil];
-        [self.navigationItem setBackBarButtonItem:backButton];
-        
-        SSLocationDetailViewController *destinationViewController = (SSLocationDetailViewController *)segue.destinationViewController;
-        destinationViewController.hidesBottomBarWhenPushed = YES;
-        destinationViewController.location = _tempLocation;
-        _tempLocation = nil;
+    if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
+        SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
+        return [NSPredicate predicateWithFormat:@"ANY categories == %@", category];
+    } else {
+        return nil;
     }
 }
 
@@ -179,7 +195,14 @@
     
     [self clearMapView];
     
-    for (SSLocation *location in [SSLocation all]) {
+    NSArray *locations;
+    if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
+        SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
+        locations = [SSLocation where:[NSPredicate predicateWithFormat:@"ANY categories = %@", category]];
+    } else {
+        locations = [SSLocation all];
+    }
+    for (SSLocation *location in locations) {
         [self addToMapViewLocation:location];
     }
     [self fitAllPointsOnMapView];
@@ -237,7 +260,6 @@
         }
     }
     [self.mapView setVisibleMapRect:zoomRect animated:YES];
-    _hasMoved = NO;
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -247,11 +269,6 @@
 }
 
 #pragma mark - MapViewDelegate
-
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
-{
-    _hasMoved = YES;
-}
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
 {
@@ -314,14 +331,82 @@
         [[SSDataManager sharedInstance] fetchData];
     }];
     
-    [actionSheet addButtonWithTitle:@"Filter" onTapped:^{
-        
-    }];
+    if ([[SSLocation all] count] > 0 && [[SSCategory all] count] > 0) {
+        [actionSheet addButtonWithTitle:@"Filter" onTapped:^{
+            [self showCategoryFilter];
+        }];
+    }
     
     // Add the cancel button to the end
     [actionSheet setDestructiveButtonWithTitle:@"Cancel" onTapped:nil];
     
     [actionSheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+
+#pragma mark - Category filter
+
+- (void)showCategoryFilter
+{
+    SBTableAlert *tableAlert = [[SBTableAlert alloc] initWithTitle:@"Filter" cancelButtonTitle:@"Close" messageFormat:nil];
+    tableAlert.tableView.tag = kCategoryTableView;
+    tableAlert.tableViewDataSource = self;
+    tableAlert.tableViewDelegate = self;
+    [tableAlert show];
+}
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView.tag == kCategoryTableView) {
+        return [[SSCategory allOrderBy:@"name" ascending:YES] count] + 1;
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView.tag == kCategoryTableView) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"All";
+            if (![SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+        } else {
+            SSCategory *category = [[SSCategory allOrderBy:@"name" ascending:YES] objectAtIndex:indexPath.row - 1];
+            if ([[SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID] isEqual:category.rid]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+            cell.textLabel.text = category.name;
+        }
+        return cell;
+    }
+    return nil;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView.tag == kCategoryTableView) {
+        if (indexPath.row == 0) {
+            [SSPreferencesManager setUserDefaultValue:nil forKey:kUserDefaultsKeyFilterID];
+        } else {
+            SSCategory *category = [[SSCategory allOrderBy:@"name" ascending:YES] objectAtIndex:indexPath.row - 1];
+            [SSPreferencesManager setUserDefaultValue:category.rid forKey:kUserDefaultsKeyFilterID];
+        }
+        [tableView reloadData];
+        [self setupMapView];
+    }
 }
 
 @end

@@ -10,9 +10,9 @@
 #import <MapKit/MapKit.h>
 #import "SSLocationMapAnnotation.h"
 
-@interface SSMapViewController : UIViewController <NSFetchedResultsControllerDelegate, MKMapViewDelegate> {
+@interface SSMapViewController : UIViewController <NSFetchedResultsControllerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate> {
     SSLocation *_tempLocation;
-    BOOL _hasMoved;
+    BOOL _hasPushed;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
