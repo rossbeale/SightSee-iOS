@@ -20,9 +20,17 @@
 
 @implementation SSListViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.searchDisplayController setActive:NO animated:NO];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _filteredArray = [NSMutableArray array];
+    [self.searchDisplayController.searchResultsTableView setRowHeight:112];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFilter) name:kUpdateNotificationName object:nil];
 }
@@ -30,6 +38,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.000 green:0.287 blue:0.459 alpha:1.000];
 }
@@ -84,6 +94,9 @@
     if (tableView.tag == kCategoryTableView) {
         return [[SSCategory allOrderBy:@"name" ascending:YES] count] + 1;
     }
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_filteredArray count];
+    }
     return [super tableView:tableView numberOfRowsInSection:section];
 }
 
@@ -113,8 +126,13 @@
         return cell;
     }
     
-    SSLocationCell *cell = (SSLocationCell *)[tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    SSLocationCell *cell = (SSLocationCell *)[self.tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
+    if (tableView == self.tableView) {
+        [self configureCell:cell atIndexPath:indexPath];
+    } else {
+        SSLocation *location = [_filteredArray objectAtIndex:indexPath.row];
+        cell.location = location;
+    }
     return cell;
 }
 
@@ -123,7 +141,12 @@
     if (tableView.tag == kCategoryTableView) {
         return 44.f;
     }
-    SSLocation *location = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    SSLocation *location;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        location = [_filteredArray objectAtIndex:indexPath.row];
+    } else {
+        location = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    }
     return [SSLocationCell heightForCellWithLocation:location];
 }
 
@@ -167,19 +190,11 @@
         [[SSDataManager sharedInstance] fetchData];
     }];
     
-    if ([[SSCategory all] count] > 0) {
+    if ([[SSLocation all] count] > 0 && [[SSCategory all] count] > 0) {
         [actionSheet addButtonWithTitle:@"Filter" onTapped:^{
             [self showCategoryFilter];
         }];
     }
-    
-    [actionSheet addButtonWithTitle:@"Change Order" onTapped:^{
-        
-    }];
-    
-    [actionSheet addButtonWithTitle:@"Search" onTapped:^{
-        
-    }];
     
     // Add the cancel button to the end
     [actionSheet setDestructiveButtonWithTitle:@"Cancel" onTapped:nil];
@@ -203,6 +218,30 @@
     [NSFetchedResultsController deleteCacheWithName:nil];
     self.fetchedResultsController = nil;
     [self.tableView reloadData];
+}
+
+#pragma mark - Search
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+    _filteredArray = [[self filteredSearchLocations:searchText] copy];
+}
+
+- (NSArray *)filteredSearchLocations:(NSString *)searchText
+{
+    if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
+        SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
+        return [SSLocation where:[NSPredicate predicateWithFormat:@"ANY categories = %@ AND (name contains[cd] %@ OR desc contains[cd] %@)", category, searchText, searchText]];
+//        return [SSLocation whereFormat:@"ANY categories == %@", category];
+    } else {
+        return [SSLocation whereFormat:@"name contains[cd] '%@' OR desc contains[cd] '%@'", searchText, searchText];
+    }
 }
 
 @end

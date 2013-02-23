@@ -395,9 +395,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search locations" id="xtF-IO-Min">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="fR6-8q-BsC" id="GHw-eA-sAJ"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" id="tGc-dx-ccm" customClass="SSLocationCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="112"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="111"/>
@@ -466,8 +474,25 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="p9e-wD-nUZ" id="TPc-ux-AwZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gm-Ie-Od1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="pqB-ng-Tcu">
+                    <connections>
+                        <outlet property="delegate" destination="fR6-8q-BsC" id="REm-ye-Lzj"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="p9e-wD-nUZ">
+                    <connections>
+                        <outlet property="delegate" destination="fR6-8q-BsC" id="Ddr-1r-CXG"/>
+                        <outlet property="searchBar" destination="xtF-IO-Min" id="X2B-Lg-lrj"/>
+                        <outlet property="searchContentsController" destination="fR6-8q-BsC" id="RSl-1q-Qod"/>
+                        <outlet property="searchResultsDataSource" destination="fR6-8q-BsC" id="IgA-aO-twb"/>
+                        <outlet property="searchResultsDelegate" destination="fR6-8q-BsC" id="jdt-rb-Num"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="927" y="-397"/>
         </scene>
@@ -532,6 +557,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="optionsButtonPressed:"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
         <class className="SSLocationCell" superclassName="SSBaseLocationCell">
