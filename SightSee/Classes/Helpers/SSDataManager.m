@@ -30,7 +30,6 @@
 {
     self = [super init];
     if (self) {
-        [[SSLocationManager sharedInstance] setDelegate:self];
     }
     return self;
 }
@@ -40,10 +39,11 @@
 - (void)fetchData
 {
     // First, display an overlay...
-    //[SVProgressHUD showWithStatus:@"Fetching location..." maskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD showWithStatus:@"Fetching location..." maskType:SVProgressHUDMaskTypeGradient];
     
     // Then, fetch location...
-    //[[SSLocationManager sharedInstance] startLocationServices];
+    [[SSLocationManager sharedInstance] setDelegate:self];
+    [[SSLocationManager sharedInstance] startLocationServices];
 }
 
 - (void)locationManagedDidUpdateLocationTo:(CLLocation *)location
@@ -65,6 +65,8 @@
         
         DLog(@"Fetched JSON: %@", JSON);
         [self parseAndStoreJSON:JSON];
+        [self checkFilterStillExists];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateNotificationName object:nil];
         [SVProgressHUD showSuccessWithStatus:@"Fetched!"];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -109,6 +111,18 @@
 }
 
 #pragma mark - Data management methods
+
+- (void)checkFilterStillExists
+{
+    if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
+        NSInteger filterCount = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] count];
+        if (filterCount == 0) {
+            // Clear as it has been deleted
+            [NSFetchedResultsController deleteCacheWithName:nil];
+            [SSPreferencesManager setUserDefaultValue:nil forKey:kUserDefaultsKeyFilterID];
+        }
+    }
+}
 
 - (id)decryptJSON:(id)JSON
 {

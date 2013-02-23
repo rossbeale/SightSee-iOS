@@ -38,7 +38,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="marker_icon.png" id="mqb-YH-GAk"/>
-                    <navigationItem key="navigationItem" title="SightSee" id="ptq-1B-Tfd"/>
+                    <navigationItem key="navigationItem" title="SightSee" id="ptq-1B-Tfd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="QAO-z6-VZe">
+                            <connections>
+                                <action selector="optionsButtonPressed:" destination="did-yu-RlT" id="FEA-vU-Z8y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Li4-Tg-hL5" id="m46-IA-OhH"/>
                         <segue destination="7og-zC-LVQ" kind="push" identifier="LocationInformation" id="2IQ-0L-Zf8"/>
@@ -453,7 +459,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="List" image="list_icon.png" id="V9Q-97-tai"/>
-                    <navigationItem key="navigationItem" title="SightSee" id="BlO-Dr-WPW"/>
+                    <navigationItem key="navigationItem" title="SightSee" id="BlO-Dr-WPW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="6XB-8j-90I">
+                            <connections>
+                                <action selector="optionsButtonPressed:" destination="fR6-8q-BsC" id="Zeq-aW-BYD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gm-Ie-Od1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -518,6 +530,9 @@
         </class>
         <class className="SSListViewController" superclassName="SSCoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="optionsButtonPressed:"/>
+            </relationships>
         </class>
         <class className="SSLocationCell" superclassName="SSBaseLocationCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLocationCell.h"/>
@@ -544,6 +559,7 @@
         <class className="SSMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMapViewController.h"/>
             <relationships>
+                <relationship kind="action" name="optionsButtonPressed:"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
@@ -577,7 +593,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PVI-iN-pog"/>
         <segue reference="n3l-wE-wr5"/>
+        <segue reference="PVI-iN-pog"/>
     </inferredMetricsTieBreakers>
 </document>

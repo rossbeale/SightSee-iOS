@@ -10,6 +10,7 @@
 		B293613ED868479C8D77ED22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8035BA2294F2E92E6E3CD /* libPods.a */; };
 		D50022AC16D78BD300105242 /* SSLocationReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50022AB16D78BD300105242 /* SSLocationReviewsViewController.m */; };
 		D50022AF16D78D5200105242 /* SSReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50022AE16D78D5200105242 /* SSReviewCell.m */; };
+		D50B334A16D8CF8C00BE58D2 /* SBTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D50B334916D8CF8C00BE58D2 /* SBTableAlert.m */; };
 		D565C59816D3796B00E53194 /* SSLocationMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */; };
 		D565C5A116D38CFA00E53194 /* SSLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C5A016D38CFA00E53194 /* SSLocationDetailViewController.m */; };
 		D5BCA78716D238DC00695882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78616D238DC00695882 /* UIKit.framework */; };
@@ -100,6 +101,8 @@
 		D50022AB16D78BD300105242 /* SSLocationReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationReviewsViewController.m; sourceTree = "<group>"; };
 		D50022AD16D78D5200105242 /* SSReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSReviewCell.h; sourceTree = "<group>"; };
 		D50022AE16D78D5200105242 /* SSReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSReviewCell.m; sourceTree = "<group>"; };
+		D50B334816D8CF8C00BE58D2 /* SBTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableAlert.h; sourceTree = "<group>"; };
+		D50B334916D8CF8C00BE58D2 /* SBTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableAlert.m; sourceTree = "<group>"; };
 		D565C59616D3796B00E53194 /* SSLocationMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationMapAnnotation.h; sourceTree = "<group>"; };
 		D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationMapAnnotation.m; sourceTree = "<group>"; };
 		D565C59F16D38CFA00E53194 /* SSLocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationDetailViewController.h; sourceTree = "<group>"; };
@@ -288,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				D5E3EE4E16D4052D00E81918 /* ASStarRatingView */,
+				D50B334816D8CF8C00BE58D2 /* SBTableAlert.h */,
+				D50B334916D8CF8C00BE58D2 /* SBTableAlert.m */,
 				D5BCA86C16D2828500695882 /* SSCoreDataTableViewController.h */,
 				D5BCA86D16D2828500695882 /* SSCoreDataTableViewController.m */,
 				D565C59616D3796B00E53194 /* SSLocationMapAnnotation.h */,
@@ -683,6 +688,7 @@
 				D50022AC16D78BD300105242 /* SSLocationReviewsViewController.m in Sources */,
 				D50022AF16D78D5200105242 /* SSReviewCell.m in Sources */,
 				D5E5411816D79A6F001BAB6B /* NSString+SHA1.m in Sources */,
+				D50B334A16D8CF8C00BE58D2 /* SBTableAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

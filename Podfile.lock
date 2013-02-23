@@ -1,6 +1,7 @@
 
 PODS:
 - AFNetworking (1.1.0)
+- MEActionSheet (1.0.0)
 - ObjectiveRecord (1.1.2):
   - ObjectiveSugar
 - ObjectiveSugar (0.6.2)
@@ -8,11 +9,13 @@ PODS:
 
 DEPENDENCIES:
 - AFNetworking (~> 1.1.0)
+- MEActionSheet (~> 1.0.0)
 - ObjectiveRecord (~> 1.1.2)
 - SVProgressHUD (~> 0.9)
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  MEActionSheet: 966dae546c767c53160c87402135b9263ea0300f
   ObjectiveRecord: 346a5da3822a6d3d889af5f45c44059edda4c936
   ObjectiveSugar: 50bcd329b18ab6da6457e1bf55be71acb7c39d44
   SVProgressHUD: 98935fbafaf0031df4a9cafca3c66eaf3da06967

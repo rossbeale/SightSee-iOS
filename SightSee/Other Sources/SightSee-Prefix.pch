@@ -20,7 +20,9 @@
     #import "ObjectiveSugar.h"
     #import <AFNetworking/AFNetworking.h>
     #import <SVProgressHUD/SVProgressHUD.h>
+    #import <MEActionSheet/MEActionSheet.h>
     // Import helpers
+    #import "SBTableAlert.h"
     #import "SSPreferencesManager.h"
 #endif
 

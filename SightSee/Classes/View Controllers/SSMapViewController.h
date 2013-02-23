@@ -20,4 +20,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+- (IBAction)optionsButtonPressed:(id)sender;
+
 @end

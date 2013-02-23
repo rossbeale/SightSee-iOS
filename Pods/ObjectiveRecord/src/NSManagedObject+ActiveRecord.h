@@ -26,6 +26,7 @@
 + (id)create:(NSDictionary *)attributes;
 
 + (NSArray *)all;
++ (NSArray *)allOrderBy:(NSString *)orderBy ascending:(BOOL)ascending;
 + (NSArray *)where:(id)condition;
 + (NSArray *)whereFormat:(NSString *)format, ...;
 
@@ -38,7 +39,7 @@
 
 + (void)deleteAllInContext:(NSManagedObjectContext *)context;
 
-+ (NSArray *)allInContext:(NSManagedObjectContext *)context;
-+ (NSArray *)where:(id)condition inContext:(NSManagedObjectContext *)context;    
++ (NSArray *)allOrderBy:(NSString *)orderBy ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context;
++ (NSArray *)where:(id)condition inContext:(NSManagedObjectContext *)context;
 
 @end

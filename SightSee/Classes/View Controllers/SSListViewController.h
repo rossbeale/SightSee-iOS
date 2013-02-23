@@ -10,8 +10,10 @@
 #import "SSCoreDataTableViewController.h"
 #import "SSLocation.h"
 
-@interface SSListViewController : SSCoreDataTableViewController {
+@interface SSListViewController : SSCoreDataTableViewController <UIPickerViewDelegate> {
     SSLocation *_tempLocation;
 }
+
+- (IBAction)optionsButtonPressed:(id)sender;
 
 @end

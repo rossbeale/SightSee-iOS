@@ -9,6 +9,7 @@
 #import "SSMapViewController.h"
 #import "SSLocationDetailViewController.h"
 #import "SSLocation.h"
+#import "SSDataManager.h"
 
 @interface SSMapViewController ()
 /**
@@ -296,6 +297,31 @@
     SSLocationMapAnnotation *annotation = (SSLocationMapAnnotation *)view.annotation;
     _tempLocation = annotation.location;
     [self performSegueWithIdentifier:@"LocationInformation" sender:self];
+}
+
+#pragma mark - options button
+
+- (IBAction)optionsButtonPressed:(id)sender
+{
+    [self presentOptions];
+}
+
+- (void)presentOptions
+{
+    MEActionSheet *actionSheet = [[MEActionSheet alloc] initWithTitle:nil];
+    
+    [actionSheet addButtonWithTitle:@"Refresh Location" onTapped:^{
+        [[SSDataManager sharedInstance] fetchData];
+    }];
+    
+    [actionSheet addButtonWithTitle:@"Filter" onTapped:^{
+        
+    }];
+    
+    // Add the cancel button to the end
+    [actionSheet setDestructiveButtonWithTitle:@"Cancel" onTapped:nil];
+    
+    [actionSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 @end

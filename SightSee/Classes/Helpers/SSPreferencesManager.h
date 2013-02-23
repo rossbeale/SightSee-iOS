@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    kUserDefaultsKeyStartingTab = 100
+    kUserDefaultsKeyStartingTab = 100,
+    kUserDefaultsKeyFilterID = 200
 } kUserDefaultsKey;
 
 @interface SSPreferencesManager : NSObject

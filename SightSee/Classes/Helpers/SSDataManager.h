@@ -11,6 +11,8 @@
 #import "SSSightSeeAPIHTTPClient.h"
 #import "SSReview.h"
 
+#define kUpdateNotificationName @"UpdateNotification"
+
 typedef void (^CompletionWithBooleanBlock)(BOOL success);
 
 @interface SSDataManager : NSObject <SSLocationManagerDelegate>

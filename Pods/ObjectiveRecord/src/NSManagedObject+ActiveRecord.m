@@ -20,12 +20,21 @@
 #pragma mark - Finders
 
 + (NSArray *)all {
-    return [self allInContext:[NSManagedObjectContext defaultContext]];
+    return [self allOrderBy:nil ascending:NO inContext:[NSManagedObjectContext defaultContext]];
 }
 
-+ (NSArray *)allInContext:(NSManagedObjectContext *)context {
++ (NSArray *)allOrderBy:(NSString *)orderBy ascending:(BOOL)ascending {
+    return [self allOrderBy:orderBy ascending:ascending inContext:[NSManagedObjectContext defaultContext]];
+}
+
++ (NSArray *)allOrderBy:(NSString *)orderBy ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context {
     
-    return [self fetchWithPredicate:nil inContext:context];
+    if (orderBy) {
+        return [self fetchWithPredicate:nil andDescriptor:[NSSortDescriptor sortDescriptorWithKey:orderBy ascending:ascending] inContext:context];
+    } else {
+        
+        return [self fetchWithPredicate:nil andDescriptor:nil inContext:context];
+    }
 }
 
 + (NSArray *)whereFormat:(NSString *)format, ... {
@@ -49,6 +58,7 @@
                                                 [self predicateFromStringOrDict:condition];
     
     return [self fetchWithPredicate:predicate
+                          andDescriptor:nil
                           inContext:context];
 }
 
@@ -92,7 +102,7 @@
 
 + (void)deleteAllInContext:(NSManagedObjectContext *)context {
     
-    [[self allInContext:context] each:^(id object) {
+    [[self allOrderBy:nil ascending:nil inContext:context] each:^(id object) {
         [object delete];
     }];
 }
@@ -132,11 +142,13 @@
     return request;
 }
 
-+ (NSArray *)fetchWithPredicate:(NSPredicate *)predicate
-                      inContext:(NSManagedObjectContext *)context {
++ (NSArray *)fetchWithPredicate:(NSPredicate *)predicate andDescriptor:(NSSortDescriptor *)descriptor inContext:(NSManagedObjectContext *)context {
     
     NSFetchRequest *request = [self createFetchRequestInContext:context];
     [request setPredicate:predicate];
+    if (descriptor) {
+        [request setSortDescriptors:@[descriptor]];
+    }
     
     NSArray *fetchedObjects = [context executeFetchRequest:request error:nil];
     if (fetchedObjects.count > 0) return fetchedObjects;
