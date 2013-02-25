@@ -20,6 +20,7 @@ typedef void (^CompletionWithBooleanBlock)(BOOL success, NSError *error);
 + (id)sharedInstance;
 
 - (void)fetchData;
+- (void)deleteAllData;
 
 - (void)postReviewToServer:(SSReview *)review forLocation:(SSLocation *)location withCompletion:(CompletionWithBooleanBlock)completionBlock;
 

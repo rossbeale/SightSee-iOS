@@ -14,4 +14,12 @@
 
 - (NSNumber *)averageRating;
 
+- (BOOL)isVisiting;
+
+- (void)cancelVisiting;
+
+- (void)markAsVisiting;
+
+- (void)markAsVisited;
+
 @end

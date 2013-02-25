@@ -81,9 +81,9 @@
 {
     if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
         SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
-        return [NSPredicate predicateWithFormat:@"ANY categories == %@", category];
+        return [NSPredicate predicateWithFormat:@"ANY categories == %@ AND visiting == %@", category, [NSNumber numberWithBool:NO]];
     } else {
-        return nil;
+        return [NSPredicate predicateWithFormat:@"visiting == %@", [NSNumber numberWithBool:NO]];
     }
 }
 
@@ -165,6 +165,8 @@
 {
     if (tableView.tag == kCategoryTableView) return indexPath;
     
+    if ([[[self fetchedResultsController] fetchedObjects] count] == 0) return indexPath;
+    
     SSLocation *location = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     _tempLocation = location;
     return indexPath;
@@ -186,6 +188,9 @@
 
 - (void)didReloadData
 {
+    if ([[[self fetchedResultsController] fetchedObjects] count] == 0) {
+        [self.tableView setContentOffset:CGPointZero animated:NO];
+    }
     self.searchBar.hidden = ([[[self fetchedResultsController] fetchedObjects] count] == 0);
     self.tableView.scrollEnabled = !self.searchBar.hidden;
 }
@@ -202,13 +207,45 @@
     MEActionSheet *actionSheet = [[MEActionSheet alloc] initWithTitle:nil];
     
     [actionSheet addButtonWithTitle:@"Refresh Location" onTapped:^{
-        [[SSDataManager sharedInstance] fetchData];
+        
+        if (![[[[NSBundle mainBundle] infoDictionary] objectForKey:@"DeleteOldData"] boolValue] && [[SSLocation all] count] > 0) {
+            
+            [UIAlertView alertViewWithTitle:@"Clear Data?" message:@"This will clear all existing data and stop tracking." cancelButtonTitle:@"Keep Data" otherButtonTitles:@[@"Clear Data"] onDismiss:^(int buttonIndex) {
+                if (buttonIndex == 0) {
+                    [[SSDataManager sharedInstance] deleteAllData];
+                    [[SSDataManager sharedInstance] fetchData];
+                }
+            } onCancel:^{
+                [[SSDataManager sharedInstance] fetchData];
+            }];
+            
+        }
+        
     }];
     
     if ([[SSLocation all] count] > 0 && [[SSCategory all] count] > 0) {
         [actionSheet addButtonWithTitle:@"Filter" onTapped:^{
             [self showCategoryFilter];
         }];
+        
+        BOOL hasPreviouslyVisited = NO;
+        if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
+            SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
+            NSInteger visitedCount = [[SSLocation where:[NSPredicate predicateWithFormat:@"ANY categories = %@", category]] count];
+            if (visitedCount != [[[self fetchedResultsController] fetchedObjects] count]) {
+                hasPreviouslyVisited = YES;
+            }
+        } else {
+            if ([[SSLocation all] count] != [[[self fetchedResultsController] fetchedObjects] count]) {
+                hasPreviouslyVisited = YES;
+            }
+        }
+        
+        if (hasPreviouslyVisited) {
+            [actionSheet addButtonWithTitle:@"View Previously Visited" onTapped:^{
+                [self performSegueWithIdentifier:@"ViewPreviouslyVisited" sender:self];
+            }];
+        }
     }
     
     // Add the cancel button to the end
@@ -233,6 +270,7 @@
     [NSFetchedResultsController deleteCacheWithName:nil];
     self.fetchedResultsController = nil;
     [self.tableView reloadData];
+    [self didReloadData];
 }
 
 #pragma mark - Search
@@ -252,9 +290,9 @@
 {
     if ([SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]) {
         SSCategory *category = [[SSCategory whereFormat:@"rid == %@", [SSPreferencesManager userDefaultForKey:kUserDefaultsKeyFilterID]] lastObject];
-        return [SSLocation where:[NSPredicate predicateWithFormat:@"ANY categories = %@ AND (name contains[cd] %@ OR desc contains[cd] %@)", category, searchText, searchText]];
+        return [SSLocation where:[NSPredicate predicateWithFormat:@"ANY categories = %@ AND (name contains[cd] %@ OR desc contains[cd] %@) AND visiting == %@", category, searchText, searchText, [NSNumber numberWithBool:NO]]];
     } else {
-        return [SSLocation whereFormat:@"name contains[cd] '%@' OR desc contains[cd] '%@'", searchText, searchText];
+        return [SSLocation whereFormat:@"name contains[cd] '%@' OR desc contains[cd] '%@' AND visiting == %@", searchText, searchText, [NSNumber numberWithBool:NO]];
     }
 }
 

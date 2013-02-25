@@ -7,6 +7,7 @@
 //
 
 #import "SSLocationManager.h"
+#import "SSNotificationManager.h"
 
 #define kDistanceFilter 500
 
@@ -101,6 +102,41 @@
     if ([self.delegate respondsToSelector:@selector(locationManagerDidFailWithError:)]) {
         [self.delegate locationManagerDidFailWithError:error];
     }
+}
+
+#pragma mark - location manager
+
+- (void)trackLocation:(SSLocation *)location
+{
+    CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:CLLocationCoordinate2DMake([location.lat doubleValue], [location.lng doubleValue]) radius:kDistanceFilter identifier:[location.rid stringValue]];
+    [_locationManager startMonitoringForRegion:region];
+}
+
+- (void)cancelTrackLocation:(SSLocation *)location
+{
+    for (CLRegion *region in [_locationManager monitoredRegions]) {
+        if ([region.identifier isEqualToString:[location.rid stringValue]]) {
+            [_locationManager stopMonitoringForRegion:region];
+        }
+    }
+}
+
+- (void)cancelAllTracking
+{
+    for (CLRegion *region in [_locationManager monitoredRegions]) {
+        [_locationManager stopMonitoringForRegion:region];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    // Stop monitoring
+    [_locationManager stopMonitoringForRegion:region];
+    
+    SSLocation *trackedLocation = [[SSLocation whereFormat:@"rid == %@", region.identifier] lastObject];
+    [trackedLocation markAsVisited];
+    
+    [SSNotificationManager presentNotificationWithBody:[NSString stringWithFormat:@"Review %@!", trackedLocation.name] andAction:@"Review" andUserInfo:@{@"locationID": [trackedLocation.rid stringValue]}];
 }
 
 @end

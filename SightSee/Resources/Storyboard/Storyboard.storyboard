@@ -48,6 +48,7 @@
                     <connections>
                         <outlet property="mapView" destination="Li4-Tg-hL5" id="m46-IA-OhH"/>
                         <segue destination="7og-zC-LVQ" kind="push" identifier="LocationInformation" id="2IQ-0L-Zf8"/>
+                        <segue destination="nlV-6H-Hn6" kind="modal" identifier="ViewPreviouslyVisited" id="sl4-3l-xy4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYy-kA-1xX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,21 +58,21 @@
         <!--Location Detail View Controller-->
         <scene sceneID="HGp-DQ-yzb">
             <objects>
-                <tableViewController id="7og-zC-LVQ" customClass="SSLocationDetailViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocationDetailViewController" id="7og-zC-LVQ" customClass="SSLocationDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cep-Kj-UWA">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapViewCell" rowHeight="150" id="YWi-CJ-tUG" customClass="SSMapViewCell">
-                                <rect key="frame" x="0.0" y="46" width="320" height="151"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MapViewCell" rowHeight="200" id="YWi-CJ-tUG" customClass="SSMapViewCell">
+                                <rect key="frame" x="0.0" y="46" width="320" height="201"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="149"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" id="vwY-QX-ttj">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="220"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         </mapView>
                                     </subviews>
@@ -82,7 +83,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailCell" id="1LC-ZO-cdi" customClass="SSBaseLocationCell">
-                                <rect key="frame" x="0.0" y="197" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="247" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -113,7 +114,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DescriptionCell" id="eXr-1g-0HA" customClass="SSDescriptionCell">
-                                <rect key="frame" x="0.0" y="241" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="291" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -135,7 +136,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReviewInformationCell" id="aYG-F6-HPr" customClass="SSReviewInformationCell">
-                                <rect key="frame" x="0.0" y="285" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="335" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -178,7 +179,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActionCell" id="2N5-1m-Bth" customClass="SSBaseLocationCell">
-                                <rect key="frame" x="0.0" y="329" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="379" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -439,7 +440,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <view contentMode="scaleToFill" id="OT0-zy-ubJ" customClass="ASStarRatingView">
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="OT0-zy-ubJ" customClass="ASStarRatingView">
                                             <rect key="frame" x="10" y="84" width="105" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -495,6 +496,7 @@
                     <connections>
                         <outlet property="searchBar" destination="xtF-IO-Min" id="D1O-hW-uHU"/>
                         <outlet property="searchDisplayController" destination="p9e-wD-nUZ" id="TPc-ux-AwZ"/>
+                        <segue destination="nlV-6H-Hn6" kind="modal" identifier="ViewPreviouslyVisited" id="9uv-Ax-UXy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gm-Ie-Od1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -514,6 +516,122 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="927" y="-397"/>
+        </scene>
+        <!--Previously Visited Locations View Controller - Previously Visited-->
+        <scene sceneID="IRT-Qr-zOx">
+            <objects>
+                <tableViewController id="92v-du-WMR" customClass="SSPreviouslyVisitedLocationsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="112" sectionHeaderHeight="22" sectionFooterHeight="22" id="fxT-Nn-xqp">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" id="i4n-Ef-BFO" customClass="SSLocationCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="112"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="111"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WGF-S1-lkp">
+                                            <rect key="frame" x="10" y="10" width="300" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HfQ-X0-WWU">
+                                            <rect key="frame" x="10" y="38" width="300" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pAN-Qn-xUx">
+                                            <rect key="frame" x="10" y="61" width="300" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not Yet Reviewed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oVC-HJ-H7H">
+                                            <rect key="frame" x="10" y="84" width="300" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="wRt-Hm-dHJ" customClass="ASStarRatingView">
+                                            <rect key="frame" x="10" y="84" width="105" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="locationDescriptionLabel" destination="HfQ-X0-WWU" id="hsQ-zn-vlb"/>
+                                    <outlet property="locationDistanceLabel" destination="pAN-Qn-xUx" id="Qbi-Cd-8n5"/>
+                                    <outlet property="locationNameLabel" destination="WGF-S1-lkp" id="4RB-d1-kOX"/>
+                                    <outlet property="locationNoReviewsLabel" destination="oVC-HJ-H7H" id="0mt-LK-AVD"/>
+                                    <outlet property="locationRatingBar" destination="wRt-Hm-dHJ" id="9Ph-7h-1XS"/>
+                                    <outletCollection property="boldLabels" destination="WGF-S1-lkp" id="b2D-IK-vEg"/>
+                                    <outletCollection property="standardLabels" destination="HfQ-X0-WWU" id="1ds-BJ-nSS"/>
+                                    <outletCollection property="standardLabels" destination="pAN-Qn-xUx" id="XF1-7i-pGa"/>
+                                    <outletCollection property="standardLabels" destination="oVC-HJ-H7H" id="SnD-Db-LRC"/>
+                                    <segue destination="7og-zC-LVQ" kind="push" identifier="LocationInformation" id="KcY-x7-6WC"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmptyCell" rowHeight="480" id="Ooa-nf-q36">
+                                <rect key="frame" x="0.0" y="134" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="479"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No locations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="voT-oT-cTB">
+                                            <rect key="frame" x="10" y="112" width="300" height="245"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="92v-du-WMR" id="VFK-6q-Thx"/>
+                            <outlet property="delegate" destination="92v-du-WMR" id="nfn-xs-KLV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Previously Visited" id="8a8-ql-THI">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="KxA-ly-Y1F">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="92v-du-WMR" id="I2H-fp-mVW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAP-Ei-rAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1808" y="-1216"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m2M-oH-LrP">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="nlV-6H-Hn6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HmA-ky-QiE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="92v-du-WMR" kind="relationship" relationship="rootViewController" id="oSq-i5-bSW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xv-QD-Ib7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1352" y="-1216"/>
         </scene>
         <!--Saving Tab Bar Controller-->
         <scene sceneID="2Ke-nU-gte">
@@ -611,6 +729,12 @@
         <class className="SSPlaceholderTextView" superclassName="UITextView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSPlaceholderTextView.h"/>
         </class>
+        <class className="SSPreviouslyVisitedLocationsViewController" superclassName="SSCoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSPreviouslyVisitedLocationsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeButtonPressed:"/>
+            </relationships>
+        </class>
         <class className="SSReviewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSReviewCell.h"/>
             <relationships>
@@ -638,7 +762,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="n3l-wE-wr5"/>
-        <segue reference="PVI-iN-pog"/>
+        <segue reference="2IQ-0L-Zf8"/>
+        <segue reference="sl4-3l-xy4"/>
+        <segue reference="na2-bM-bqz"/>
     </inferredMetricsTieBreakers>
 </document>

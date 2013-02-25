@@ -11,6 +11,7 @@ extern const struct SSLocationAttributes {
 	__unsafe_unretained NSString *lng;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *rid;
+	__unsafe_unretained NSString *visiting;
 } SSLocationAttributes;
 
 extern const struct SSLocationRelationships {
@@ -23,6 +24,7 @@ extern const struct SSLocationFetchedProperties {
 
 @class SSCategory;
 @class SSReview;
+
 
 
 
@@ -120,6 +122,20 @@ extern const struct SSLocationFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* visiting;
+
+
+
+@property BOOL visitingValue;
+- (BOOL)visitingValue;
+- (void)setVisitingValue:(BOOL)value_;
+
+//- (BOOL)validateVisiting:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSSet *categories;
 
 - (NSMutableSet*)categoriesSet;
@@ -198,6 +214,15 @@ extern const struct SSLocationFetchedProperties {
 
 - (int16_t)primitiveRidValue;
 - (void)setPrimitiveRidValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitiveVisiting;
+- (void)setPrimitiveVisiting:(NSNumber*)value;
+
+- (BOOL)primitiveVisitingValue;
+- (void)setPrimitiveVisitingValue:(BOOL)value_;
 
 
 

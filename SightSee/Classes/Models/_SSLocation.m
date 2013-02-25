@@ -10,6 +10,7 @@ const struct SSLocationAttributes SSLocationAttributes = {
 	.lng = @"lng",
 	.name = @"name",
 	.rid = @"rid",
+	.visiting = @"visiting",
 };
 
 const struct SSLocationRelationships SSLocationRelationships = {
@@ -63,6 +64,11 @@ const struct SSLocationFetchedProperties SSLocationFetchedProperties = {
 	}
 	if ([key isEqualToString:@"ridValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"rid"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"visitingValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"visiting"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -185,6 +191,32 @@ const struct SSLocationFetchedProperties SSLocationFetchedProperties = {
 
 - (void)setPrimitiveRidValue:(int16_t)value_ {
 	[self setPrimitiveRid:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic visiting;
+
+
+
+- (BOOL)visitingValue {
+	NSNumber *result = [self visiting];
+	return [result boolValue];
+}
+
+- (void)setVisitingValue:(BOOL)value_ {
+	[self setVisiting:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveVisitingValue {
+	NSNumber *result = [self primitiveVisiting];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveVisitingValue:(BOOL)value_ {
+	[self setPrimitiveVisiting:[NSNumber numberWithBool:value_]];
 }
 
 

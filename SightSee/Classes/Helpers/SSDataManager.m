@@ -71,6 +71,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        DLog(@"Update failed with error: %@", error);
         [SVProgressHUD showErrorWithStatus:@"Update failed!"];
         
     }];
@@ -148,6 +149,7 @@
 {
     if ([[[[NSBundle mainBundle] infoDictionary] objectForKey:@"DeleteOldData"] boolValue]) {
         [self deleteAllData];
+        [[SSLocationManager sharedInstance] cancelAllTracking];
     }
     DLog(@"Parsing...");
     for (id location in JSON) {

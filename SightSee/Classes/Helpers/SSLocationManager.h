@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SSLocation.h"
 
 @protocol SSLocationManagerDelegate <NSObject>
 @optional
@@ -26,5 +27,9 @@
 
 - (void)startLocationServices;
 - (void)stopLocationServices;
+
+- (void)trackLocation:(SSLocation *)location;
+- (void)cancelTrackLocation:(SSLocation *)location;
+- (void)cancelAllTracking;
 
 @end

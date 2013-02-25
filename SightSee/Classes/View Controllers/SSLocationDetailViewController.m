@@ -12,6 +12,7 @@
 #import "SSDescriptionCell.h"
 #import "SSComposeReviewViewController.h"
 #import "SSLocationReviewsViewController.h"
+#import "SSNotificationManager.h"
 
 @interface SSLocationDetailViewController ()
 
@@ -85,7 +86,7 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    return 150.f;
+                    return 200.f;
                 case 2:
                     if ([self.location hasDescription]) return [SSDescriptionCell heightForCellWithDescription:self.location.desc];
                     return 44.f;
@@ -154,7 +155,11 @@
                     }
                     break;
                 case 1:
-                    cell.dataLabel.text = @"View Directions";
+                    if ([self.location isVisiting]) {
+                        cell.dataLabel.text = @"Cancel Tracking";
+                    } else {
+                        cell.dataLabel.text = @"View Directions";
+                    }
                     break;
                 default:
                     cell.dataLabel.text = @"Share";
@@ -236,6 +241,30 @@
         case 1:
         {
             // View directions
+            if ([self.location isVisiting]) {
+                [UIAlertView alertViewWithTitle:@"Tracking" message:@"This will cancel location tracking to this venue." cancelButtonTitle:@"OK" otherButtonTitles:nil onDismiss:nil onCancel:^{
+                    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+                    [self.location cancelVisiting];
+                    [self.tableView reloadData];
+                }];
+            } else {
+                if ([[self.location distance] floatValue] < 0.25) {
+                    [UIAlertView alertViewWithTitle:@"Review" message:@"Looks like you are already here. Review?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Review"] onDismiss:^(int buttonIndex) {
+                        if (buttonIndex == 0) {
+                            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+                            [self performSegueWithIdentifier:@"WriteReview" sender:self];
+                        }
+                    } onCancel:^{
+                        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+                    }];
+                } else {
+                    [UIAlertView alertViewWithTitle:@"Tracking" message:@"This will open up directions and track your location until you reach the venue." cancelButtonTitle:@"OK" otherButtonTitles:nil onDismiss:nil onCancel:^{
+                        [self.location markAsVisiting];
+                        [self openMapsApp];
+                        [self.tableView reloadData];
+                    }];
+                }
+            }
         }
             break;
         case 2:
@@ -251,6 +280,13 @@
         }
             break;
     }
+}
+
+- (void)openMapsApp
+{
+    MKMapItem *sourceMapItem = [MKMapItem mapItemForCurrentLocation];
+    MKMapItem *destinationMapItem = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([self.location.lat doubleValue], [self.location.lng doubleValue]) addressDictionary:nil]];
+    [MKMapItem openMapsWithItems:@[sourceMapItem, destinationMapItem] launchOptions:@{MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeWalking}];
 }
 
 @end

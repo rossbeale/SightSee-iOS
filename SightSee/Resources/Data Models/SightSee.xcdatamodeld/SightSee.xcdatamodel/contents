@@ -12,6 +12,7 @@
         <attribute name="lng" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="rid" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="visiting" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="categories" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="locations" inverseEntity="SSCategory" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SSReview" inverseName="location" inverseEntity="SSReview" syncable="YES"/>
     </entity>
@@ -24,7 +25,7 @@
     </entity>
     <elements>
         <element name="SSCategory" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="SSLocation" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="SSLocation" positionX="160" positionY="192" width="128" height="180"/>
         <element name="SSReview" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

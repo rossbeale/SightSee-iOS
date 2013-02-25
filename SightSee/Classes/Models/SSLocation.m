@@ -1,4 +1,5 @@
 #import "SSLocation.h"
+#import "SSLocationManager.h"
 
 @interface SSLocation ()
 @end
@@ -70,6 +71,28 @@
 - (NSNumber *)averageRating
 {
     return [self.reviews valueForKeyPath:@"@avg.score"];
+}
+
+- (BOOL)isVisiting
+{
+    return [self.visiting boolValue];
+}
+
+- (void)cancelVisiting
+{
+    self.visiting = [NSNumber numberWithBool:NO];
+    [[SSLocationManager sharedInstance] cancelTrackLocation:self];
+}
+
+- (void)markAsVisiting
+{
+    self.visiting = [NSNumber numberWithBool:YES];
+    [[SSLocationManager sharedInstance] trackLocation:self];
+}
+
+- (void)markAsVisited
+{
+    self.visiting = [NSNumber numberWithBool:NO];
 }
 
 @end

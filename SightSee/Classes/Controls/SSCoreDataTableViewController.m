@@ -219,6 +219,8 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self didReloadData];
+    //[self.tableView endUpdates];
 }
+
 
 @end

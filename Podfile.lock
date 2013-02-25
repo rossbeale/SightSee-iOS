@@ -6,12 +6,14 @@ PODS:
   - ObjectiveSugar
 - ObjectiveSugar (0.6.2)
 - SVProgressHUD (0.9)
+- UIKitCategoryAdditions (0.0.1)
 
 DEPENDENCIES:
 - AFNetworking (~> 1.1.0)
 - MEActionSheet (~> 1.0.0)
 - ObjectiveRecord (~> 1.1.2)
 - SVProgressHUD (~> 0.9)
+- UIKitCategoryAdditions (~> 0.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
@@ -19,5 +21,6 @@ SPEC CHECKSUMS:
   ObjectiveRecord: 346a5da3822a6d3d889af5f45c44059edda4c936
   ObjectiveSugar: 50bcd329b18ab6da6457e1bf55be71acb7c39d44
   SVProgressHUD: 98935fbafaf0031df4a9cafca3c66eaf3da06967
+  UIKitCategoryAdditions: 8ea97b21a87cebc6a6b848ea85431f5d5474e22d
 
 COCOAPODS: 0.16.2

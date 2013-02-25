@@ -21,9 +21,12 @@
     #import <AFNetworking/AFNetworking.h>
     #import <SVProgressHUD/SVProgressHUD.h>
     #import <MEActionSheet/MEActionSheet.h>
+    #import <UIKitCategoryAdditions/UIAlertView+MKBlockAdditions.h>
     // Import helpers
     #import "SBTableAlert.h"
     #import "SSPreferencesManager.h"
+    // Import categories
+    #import "MKMapView+SSAdditions.h"
 #endif
 
 // Logging
