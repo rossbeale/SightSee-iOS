@@ -202,8 +202,12 @@
     } else {
         locations = [SSLocation all];
     }
-    for (SSLocation *location in locations) {
-        [self addToMapViewLocation:location];
+    if ([locations count] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"No locations were found"];
+    } else {
+        for (SSLocation *location in locations) {
+            [self addToMapViewLocation:location];
+        }
     }
     [self fitAllPointsOnMapView];
 }
@@ -272,7 +276,7 @@
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
 {
-    //TODO: failed
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Maps could not load." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation

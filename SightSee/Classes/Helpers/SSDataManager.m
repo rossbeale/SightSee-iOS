@@ -70,18 +70,21 @@
         [SVProgressHUD showSuccessWithStatus:@"Fetched!"];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //TODO: failure
+        
+        [SVProgressHUD showErrorWithStatus:@"Update failed!"];
+        
     }];
 }
 
 - (void)locationManagerDidChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    //TODO: this
+    // Update overlay...
+    [SVProgressHUD showWithStatus:@"Fetching location..." maskType:SVProgressHUDMaskTypeGradient];
 }
 
 - (void)locationManagerDidFailWithError:(NSError *)error
 {
-    //TODO: this
+    [SVProgressHUD showErrorWithStatus:@"Could not get location"];
 }
 
 #pragma mark - Posting reviews to server management
@@ -98,14 +101,16 @@
             [review setRid:newReviewID];
             [review setLocation:location];
             [review save];
-            completionBlock(YES);
+            completionBlock(YES, nil);
             [SVProgressHUD showSuccessWithStatus:@"Sent!"];
         } else {
-            //TODO: duplicate error
+            completionBlock(NO, nil);
+            [SVProgressHUD dismiss];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //TODO: failure
+        completionBlock(NO, error);
+        [SVProgressHUD dismiss];
     }];
 
 }

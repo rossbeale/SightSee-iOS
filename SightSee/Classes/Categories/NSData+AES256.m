@@ -84,7 +84,7 @@
 		//the returned NSData takes ownership of the buffer and will free it on deallocation
 		return [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
 	} else {
-        NSLog(@"Crypt error status: %i", cryptStatus);
+        DLog(@"Crypt error status: %i", cryptStatus);
     }
 	
 	free(buffer); //free the buffer;

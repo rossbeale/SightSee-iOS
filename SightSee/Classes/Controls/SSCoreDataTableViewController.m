@@ -167,6 +167,10 @@
     return _fetchedResultsController;
 }
 
+- (void)didReloadData
+{
+    
+}
 
 #pragma mark - Fetched results controller delegate
 
@@ -214,7 +218,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    //[self.tableView endUpdates];
+    [self didReloadData];
 }
 
 @end

@@ -15,6 +15,8 @@
     NSMutableArray *_filteredArray;
 }
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 - (IBAction)optionsButtonPressed:(id)sender;
 
 @end

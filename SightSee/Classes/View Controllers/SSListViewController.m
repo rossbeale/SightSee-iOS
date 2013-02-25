@@ -30,6 +30,7 @@
     
     _filteredArray = [NSMutableArray array];
     [self.searchDisplayController.searchResultsTableView setRowHeight:112];
+    [self didReloadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFilter) name:kUpdateNotificationName object:nil];
 }
@@ -96,7 +97,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [_filteredArray count];
     }
-    return [super tableView:tableView numberOfRowsInSection:section];
+    return MAX(1, [super tableView:tableView numberOfRowsInSection:section]);
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -125,6 +126,10 @@
         return cell;
     }
     
+    if ([[[self fetchedResultsController] fetchedObjects] count] == 0) {
+        return [self.tableView dequeueReusableCellWithIdentifier:@"EmptyCell" forIndexPath:indexPath];
+    }
+    
     SSLocationCell *cell = (SSLocationCell *)[self.tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
     if (tableView == self.tableView) {
         [self configureCell:cell atIndexPath:indexPath];
@@ -140,6 +145,11 @@
     if (tableView.tag == kCategoryTableView) {
         return 44.f;
     }
+    
+    if ([[[self fetchedResultsController] fetchedObjects] count] == 0){
+        return self.tableView.frame.size.height - 44.f;
+    }
+    
     SSLocation *location;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         location = [_filteredArray objectAtIndex:indexPath.row];
@@ -172,6 +182,12 @@
         [self reloadFilter];
         [tableView reloadData];
     }
+}
+
+- (void)didReloadData
+{
+    self.searchBar.hidden = ([[[self fetchedResultsController] fetchedObjects] count] == 0);
+    self.tableView.scrollEnabled = !self.searchBar.hidden;
 }
 
 #pragma mark - options button

@@ -13,7 +13,7 @@
 
 #define kUpdateNotificationName @"UpdateNotification"
 
-typedef void (^CompletionWithBooleanBlock)(BOOL success);
+typedef void (^CompletionWithBooleanBlock)(BOOL success, NSError *error);
 
 @interface SSDataManager : NSObject <SSLocationManagerDelegate>
 

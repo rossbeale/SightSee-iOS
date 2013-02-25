@@ -100,12 +100,20 @@
 {
     if ([self validateFormValues]) {
         SSReview *createdReview = [SSReview create:@{@"score": [NSNumber numberWithFloat:self.ratingView.rating], @"reviewer" : [self validatedNameText], @"comment" : [self validatedReviewText]}];
-        [[SSDataManager sharedInstance] postReviewToServer:createdReview forLocation:self.location withCompletion:^(BOOL success) {
+        [[SSDataManager sharedInstance] postReviewToServer:createdReview forLocation:self.location withCompletion:^(BOOL success, NSError *error) {
+            
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not post review" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                return;
+            }
+            
             if (success) {
                 [self popBack];
             } else {
-                //TODO: not a success
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You have already posted a review for this location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                [self popBack];
             }
+            
         }];
     }
 }

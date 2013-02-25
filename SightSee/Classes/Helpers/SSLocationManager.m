@@ -8,6 +8,8 @@
 
 #import "SSLocationManager.h"
 
+#define kDistanceFilter 500
+
 @implementation SSLocationManager
 
 + (id)sharedInstance
@@ -27,6 +29,7 @@
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        _locationManager.distanceFilter = kDistanceFilter;
         _locationManager.pausesLocationUpdatesAutomatically = YES;
     }
     return self;
@@ -55,29 +58,29 @@
     
     switch (status) {
         case kCLAuthorizationStatusAuthorized:
-            NSLog(@"Location authorisation changed to: AUTHORIZED");
+            DLog(@"Location authorisation changed to: AUTHORIZED");
             break;
             
         case kCLAuthorizationStatusDenied:
-            NSLog(@"Location authorisation changed to: DENIED");
+            DLog(@"Location authorisation changed to: DENIED");
             break;
             
         case kCLAuthorizationStatusNotDetermined:
-            NSLog(@"Location authorisation changed to: NOT DETERMINED");
+            DLog(@"Location authorisation changed to: NOT DETERMINED");
             break;
             
         case kCLAuthorizationStatusRestricted:
-            NSLog(@"Location authorisation changed to: RESTRICTED");
+            DLog(@"Location authorisation changed to: RESTRICTED");
             break;
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    //TODO: make this stop only when accurate
-    NSLog(@"Location Update Detected");
-    [self stopLocationServices];
+    DLog(@"Location update detected...");
     
+    [self stopLocationServices];
+        
     _location = [locations lastObject];
     [self updatedLocation];
 }

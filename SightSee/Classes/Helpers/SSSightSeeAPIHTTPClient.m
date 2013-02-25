@@ -10,7 +10,8 @@
 #import "SSPreferencesManager.h"
 #import "NSString+SHA1.h"
 
-#define kDiffbotAPIBaseURLString @"http://localhost:3000"
+//TODO: change string based on deployment
+#define kDiffbotAPIBaseURLString @"https://sightsee.herokuapp.com"
 
 @implementation SSSightSeeAPIHTTPClient
 
