@@ -41,5 +41,7 @@
 	</array>
 	<key>UseProductionURL</key>
 	<true/>
+	<key>DeleteOldData</key>
+	<true/>
 </dict>
 </plist>

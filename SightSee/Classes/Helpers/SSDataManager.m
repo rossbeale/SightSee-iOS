@@ -146,7 +146,9 @@
 
 - (void)parseAndStoreJSON:(id)JSON
 {
-    [self deleteAllData];
+    if ([[[[NSBundle mainBundle] infoDictionary] objectForKey:@"DeleteOldData"] boolValue]) {
+        [self deleteAllData];
+    }
     DLog(@"Parsing...");
     for (id location in JSON) {
         [SSLocation parseLocationJSON:location];
