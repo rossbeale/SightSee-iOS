@@ -95,6 +95,8 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+    [self stopLocationServices];
+    
     // forward on to delegate
     if ([self.delegate respondsToSelector:@selector(locationManagerDidFailWithError:)]) {
         [self.delegate locationManagerDidFailWithError:error];

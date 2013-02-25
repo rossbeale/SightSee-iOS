@@ -21,7 +21,13 @@
     
     [self.ratingView setRating:0];
     self.ratingView.delegate = self;
-    [self.nameInputTextField becomeFirstResponder];
+    
+    if ([SSPreferencesManager reviewUsername]) {
+        self.nameInputTextField.text = [SSPreferencesManager reviewUsername];
+        [self.reviewInputTextField becomeFirstResponder];
+    } else {
+        [self.nameInputTextField becomeFirstResponder];
+    }
     
     [self setupFonts];
 }
@@ -99,6 +105,7 @@
 - (IBAction)sendReviewButtonPressed:(id)sender
 {
     if ([self validateFormValues]) {
+        [self saveUsername];
         SSReview *createdReview = [SSReview create:@{@"score": [NSNumber numberWithFloat:self.ratingView.rating], @"reviewer" : [self validatedNameText], @"comment" : [self validatedReviewText]}];
         [[SSDataManager sharedInstance] postReviewToServer:createdReview forLocation:self.location withCompletion:^(BOOL success, NSError *error) {
             
@@ -128,6 +135,11 @@
         return NO;
     }
     return YES;
+}
+
+- (void)saveUsername
+{
+    [SSPreferencesManager setReviewUsername:[self validatedNameText]];
 }
 
 - (void)showAlertMessage:(NSString *)message

@@ -23,6 +23,7 @@
             self.noReviewsLabel.hidden = YES;
             self.ratingsDisplayView.hidden = NO;
             self.ratingView.rating = [[self.location averageRating] floatValue];
+            self.reviewCountLabel.text = [NSString stringWithFormat:@"%d reviews", [self.location.reviews count]];
         } else {
             self.ratingsDisplayView.hidden = YES;
             self.noReviewsLabel.hidden = NO;

@@ -8,8 +8,6 @@
 
 #import "SSPreferencesManager.h"
 
-#define kUserDefaultKeyDeviceIdentifier @"deviceIdentifierKey"
-
 @implementation SSPreferencesManager
 
 #pragma mark - NSUserDefaults
@@ -36,19 +34,26 @@
 
 + (NSString *)deviceIdentifier
 {
-    NSString *deviceId;
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    deviceId = [userDefaults objectForKey:kUserDefaultKeyDeviceIdentifier];
+    NSString *deviceId = [self userDefaultForKey:kUserDefaultKeyDeviceIdentifier];
     
     if (!deviceId) {
         CFUUIDRef theUUID = CFUUIDCreate(NULL);
         deviceId = (__bridge_transfer NSString*)CFUUIDCreateString(NULL, theUUID);
         CFRelease(theUUID);
-        [userDefaults setObject:deviceId forKey:kUserDefaultKeyDeviceIdentifier];
-        [userDefaults synchronize];
+        [self setUserDefaultValue:deviceId forKey:kUserDefaultKeyDeviceIdentifier];
     }
     
     return deviceId;
+}
+
++ (NSString *)reviewUsername
+{
+    return [self userDefaultForKey:kUserDefaultsKeyReviewUsername];
+}
+
++ (void)setReviewUsername:(NSString *)username
+{
+    [self setUserDefaultValue:username forKey:kUserDefaultsKeyReviewUsername];
 }
 
 @end

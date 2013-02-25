@@ -10,7 +10,9 @@
 
 typedef enum {
     kUserDefaultsKeyStartingTab = 100,
-    kUserDefaultsKeyFilterID = 200
+    kUserDefaultsKeyFilterID = 200,
+    kUserDefaultKeyDeviceIdentifier = 300,
+    kUserDefaultsKeyReviewUsername = 400
 } kUserDefaultsKey;
 
 @interface SSPreferencesManager : NSObject
@@ -20,5 +22,7 @@ typedef enum {
 + (void)setUserDefaultValue:(id)value forKey:(kUserDefaultsKey)key;
 
 + (NSString *)deviceIdentifier;
++ (NSString *)reviewUsername;
++ (void)setReviewUsername:(NSString *)username;
 
 @end

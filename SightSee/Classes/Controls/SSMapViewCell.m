@@ -31,7 +31,7 @@
             // Add a pin to Map
             SSLocationMapAnnotation *mapAnnotation = [[SSLocationMapAnnotation alloc] initWithLocation:self.location];
             [self.mapView addAnnotation:mapAnnotation];
-            [self.mapView setCenterCoordinate:mapAnnotation.coordinate zoomLevel:3 animated:YES];
+            [self fitAllPointsOnMapView:NO];
         }
     }
 }
@@ -56,6 +56,28 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
+}
+
+- (void)fitAllPointsOnMapView:(BOOL)animated
+{
+    //http://stackoverflow.com/questions/4680649/zooming-mkmapview-to-fit-annotation-pins
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    if (self.mapView.userLocation) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(self.mapView.userLocation.coordinate);
+        zoomRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+    }
+    for (id <MKAnnotation> annotation in self.mapView.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+    }
+    [self.mapView setVisibleMapRect:zoomRect animated:animated];
 }
 
 @end

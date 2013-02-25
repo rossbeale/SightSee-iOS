@@ -209,7 +209,7 @@
             [self addToMapViewLocation:location];
         }
     }
-    [self fitAllPointsOnMapView];
+    [self fitAllPointsOnMapView:YES];
 }
 
 - (void)clearMapView
@@ -244,7 +244,7 @@
     [self.mapView removeAnnotations:toRemove];
 }
 
-- (void)fitAllPointsOnMapView
+- (void)fitAllPointsOnMapView:(BOOL)animated
 {
     //http://stackoverflow.com/questions/4680649/zooming-mkmapview-to-fit-annotation-pins
     
@@ -263,12 +263,12 @@
             zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
     }
-    [self.mapView setVisibleMapRect:zoomRect animated:YES];
+    [self.mapView setVisibleMapRect:zoomRect animated:animated];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    [self fitAllPointsOnMapView];
+    [self fitAllPointsOnMapView:YES];
     [mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
 }
 
@@ -276,7 +276,7 @@
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
 {
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Maps could not load." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Maps had trouble loading." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation

@@ -84,6 +84,7 @@
 
 - (void)locationManagerDidFailWithError:(NSError *)error
 {
+    [[SSLocationManager sharedInstance] setDelegate:nil];
     [SVProgressHUD showErrorWithStatus:@"Could not get location"];
 }
 
