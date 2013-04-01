@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>NSLocationUsageDescription</key>
-	<string>SightSee uses your location to find nearby points of interest.</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
@@ -24,12 +22,20 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>0000</string>
+	<key>DeleteOldData</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationUsageDescription</key>
+	<string>SightSee uses your location to find nearby points of interest.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PTSansRegular.ttf</string>
 		<string>PTSansBold.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Storyboard</string>
@@ -43,13 +49,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>UseProductionURL</key>
-	<true/>
-	<key>DeleteOldData</key>
 	<false/>
 </dict>
 </plist>
