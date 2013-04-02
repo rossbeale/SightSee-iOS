@@ -150,8 +150,10 @@
                 case 0:
                     if ([self.location hasReviews]) {
                         cell.dataLabel.text = @"View Reviews";
+                        [cell setAccessibilityLabel:@"View Reviews"];
                     } else {
                         cell.dataLabel.text = @"Write a Review";
+                        [cell setAccessibilityLabel:@"Add Review"];
                     }
                     break;
                 case 1:

@@ -10,6 +10,10 @@
 #import "SSDataManager.h"
 #import "SSLocationDetailViewController.h"
 
+#if RUN_KIF_TESTS
+#import "TestController.h"
+#endif
+
 @implementation SSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -27,6 +31,13 @@
     }
     
     [[SSDataManager sharedInstance] fetchData];
+    
+    #if RUN_KIF_TESTS
+        [[TestController sharedInstance] startTestingWithCompletionBlock:^{
+            // Exit after the tests complete so that CI knows we're done
+            exit([[TestController sharedInstance] failureCount]);
+        }];
+    #endif
     
     return YES;
 }

@@ -13,6 +13,75 @@
 		D50B334A16D8CF8C00BE58D2 /* SBTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D50B334916D8CF8C00BE58D2 /* SBTableAlert.m */; };
 		D565C59816D3796B00E53194 /* SSLocationMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */; };
 		D565C5A116D38CFA00E53194 /* SSLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C5A016D38CFA00E53194 /* SSLocationDetailViewController.m */; };
+		D56EB2F7170B3CBA007F6884 /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA80916D268F100695882 /* SSAppDelegate.m */; };
+		D56EB2F8170B3CBA007F6884 /* SSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA80E16D268F100695882 /* SSDataManager.m */; };
+		D56EB2F9170B3CBA007F6884 /* SSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA81016D268F100695882 /* SSLocationManager.m */; };
+		D56EB2FA170B3CBA007F6884 /* SSListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA81516D268F100695882 /* SSListViewController.m */; };
+		D56EB2FB170B3CBA007F6884 /* SSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA81716D268F100695882 /* SSMapViewController.m */; };
+		D56EB2FC170B3CBA007F6884 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA81C16D268F100695882 /* main.m */; };
+		D56EB2FD170B3CBA007F6884 /* SightSee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA82216D268F200695882 /* SightSee.xcdatamodeld */; };
+		D56EB2FE170B3CBA007F6884 /* SSSightSeeAPIHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA84416D2736D00695882 /* SSSightSeeAPIHTTPClient.m */; };
+		D56EB2FF170B3CBA007F6884 /* _SSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA85B16D27F8A00695882 /* _SSCategory.m */; };
+		D56EB300170B3CBA007F6884 /* _SSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA85D16D27F8A00695882 /* _SSLocation.m */; };
+		D56EB301170B3CBA007F6884 /* _SSReview.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA85F16D27F8A00695882 /* _SSReview.m */; };
+		D56EB302170B3CBA007F6884 /* SSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA86116D27F8A00695882 /* SSCategory.m */; };
+		D56EB303170B3CBA007F6884 /* SSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA86316D27F8A00695882 /* SSLocation.m */; };
+		D56EB304170B3CBA007F6884 /* SSReview.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA86516D27F8A00695882 /* SSReview.m */; };
+		D56EB305170B3CBA007F6884 /* SSCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA86D16D2828500695882 /* SSCoreDataTableViewController.m */; };
+		D56EB306170B3CBA007F6884 /* SSPreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA87816D2B06200695882 /* SSPreferencesManager.m */; };
+		D56EB307170B3CBA007F6884 /* SSSavingTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCA87E16D2B2E100695882 /* SSSavingTabBarController.m */; };
+		D56EB308170B3CBA007F6884 /* SSLocationMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */; };
+		D56EB309170B3CBA007F6884 /* SSLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D565C5A016D38CFA00E53194 /* SSLocationDetailViewController.m */; };
+		D56EB30A170B3CBA007F6884 /* SSLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E3EE4916D3E44900E81918 /* SSLocationCell.m */; };
+		D56EB30B170B3CBA007F6884 /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E3EE5016D4052D00E81918 /* ASStarRatingView.m */; };
+		D56EB30C170B3CBA007F6884 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DC133A16D5280C00FE8740 /* NSData+AES256.m */; };
+		D56EB30D170B3CBA007F6884 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DC133C16D5280C00FE8740 /* NSData+Base64.m */; };
+		D56EB30E170B3CBA007F6884 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DC133E16D5280C00FE8740 /* NSString+Base64.m */; };
+		D56EB30F170B3CBA007F6884 /* SSMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE08C916D61F3E0008B681 /* SSMapViewCell.m */; };
+		D56EB310170B3CBA007F6884 /* SSReviewInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE08CC16D61F590008B681 /* SSReviewInformationCell.m */; };
+		D56EB311170B3CBA007F6884 /* SSBaseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5316D6565000FCF71B /* SSBaseLocationCell.m */; };
+		D56EB312170B3CBA007F6884 /* SSDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F5716D65F3000FCF71B /* SSDescriptionCell.m */; };
+		D56EB313170B3CBA007F6884 /* SSComposeReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F6016D673FE00FCF71B /* SSComposeReviewViewController.m */; };
+		D56EB314170B3CBA007F6884 /* SSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE4F6316D6777A00FCF71B /* SSPlaceholderTextView.m */; };
+		D56EB315170B3CBA007F6884 /* SSLocationReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50022AB16D78BD300105242 /* SSLocationReviewsViewController.m */; };
+		D56EB316170B3CBA007F6884 /* SSReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50022AE16D78D5200105242 /* SSReviewCell.m */; };
+		D56EB317170B3CBA007F6884 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E5411716D79A6F001BAB6B /* NSString+SHA1.m */; };
+		D56EB318170B3CBA007F6884 /* SBTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D50B334916D8CF8C00BE58D2 /* SBTableAlert.m */; };
+		D56EB319170B3CBA007F6884 /* SSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB33C716DB9536003328A6 /* SSNotificationManager.m */; };
+		D56EB31A170B3CBA007F6884 /* SSPreviouslyVisitedLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7416DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m */; };
+		D56EB31B170B3CBA007F6884 /* MKMapView+SSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7716DBC7B90079B20D /* MKMapView+SSAdditions.m */; };
+		D56EB33B170B3CBA007F6884 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA83C16D2703B00695882 /* QuartzCore.framework */; };
+		D56EB33C170B3CBA007F6884 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA7FC16D23DDD00695882 /* CoreLocation.framework */; };
+		D56EB33D170B3CBA007F6884 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA7F016D23BEE00695882 /* MapKit.framework */; };
+		D56EB33E170B3CBA007F6884 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA7E816D23B6D00695882 /* MobileCoreServices.framework */; };
+		D56EB33F170B3CBA007F6884 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA7E616D23B6900695882 /* SystemConfiguration.framework */; };
+		D56EB340170B3CBA007F6884 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78616D238DC00695882 /* UIKit.framework */; };
+		D56EB341170B3CBA007F6884 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78816D238DC00695882 /* Foundation.framework */; };
+		D56EB342170B3CBA007F6884 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78A16D238DC00695882 /* CoreGraphics.framework */; };
+		D56EB343170B3CBA007F6884 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78C16D238DC00695882 /* CoreData.framework */; };
+		D56EB344170B3CBA007F6884 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8035BA2294F2E92E6E3CD /* libPods.a */; };
+		D56EB346170B3CBA007F6884 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA81A16D268F100695882 /* InfoPlist.strings */; };
+		D56EB347170B3CBA007F6884 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA82816D268F200695882 /* Default-568h@2x.png */; };
+		D56EB348170B3CBA007F6884 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA82916D268F200695882 /* Default.png */; };
+		D56EB349170B3CBA007F6884 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA82A16D268F200695882 /* Default@2x.png */; };
+		D56EB34A170B3CBA007F6884 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA82C16D268F200695882 /* Storyboard.storyboard */; };
+		D56EB34B170B3CBA007F6884 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA83A16D2694D00695882 /* Settings.bundle */; };
+		D56EB34C170B3CBA007F6884 /* marker_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA86F16D2AFB100695882 /* marker_icon.png */; };
+		D56EB34D170B3CBA007F6884 /* marker_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA87016D2AFB100695882 /* marker_icon@2x.png */; };
+		D56EB34E170B3CBA007F6884 /* list_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA87316D2AFCB00695882 /* list_icon.png */; };
+		D56EB34F170B3CBA007F6884 /* list_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA87416D2AFCB00695882 /* list_icon@2x.png */; };
+		D56EB350170B3CBA007F6884 /* PTSansBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA88216D2B79400695882 /* PTSansBold.ttf */; };
+		D56EB351170B3CBA007F6884 /* PTSansRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BCA88316D2B79400695882 /* PTSansRegular.ttf */; };
+		D56EB352170B3CBA007F6884 /* starBig.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3916D3E3F200E81918 /* starBig.png */; };
+		D56EB353170B3CBA007F6884 /* starBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3A16D3E3F200E81918 /* starBig@2x.png */; };
+		D56EB354170B3CBA007F6884 /* starBigHalf.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3B16D3E3F200E81918 /* starBigHalf.png */; };
+		D56EB355170B3CBA007F6884 /* starBigHalf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3C16D3E3F200E81918 /* starBigHalf@2x.png */; };
+		D56EB356170B3CBA007F6884 /* starBigOff.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3D16D3E3F200E81918 /* starBigOff.png */; };
+		D56EB357170B3CBA007F6884 /* starBigOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3E16D3E3F200E81918 /* starBigOff@2x.png */; };
+		D56EB37E170B3DB2007F6884 /* libKIF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D56EB37D170B3D9F007F6884 /* libKIF.a */; };
+		D56EB386170B3F04007F6884 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56EB384170B3F03007F6884 /* TestController.m */; };
+		D56EB389170B3F57007F6884 /* KIFTestScenario+RBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D56EB388170B3F57007F6884 /* KIFTestScenario+RBAdditions.m */; };
+		D56EB38C170B4088007F6884 /* KIFTestStep+RBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D56EB38B170B4088007F6884 /* KIFTestStep+RBAdditions.m */; };
 		D57D3C7516DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7416DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m */; };
 		D57D3C7816DBC7B90079B20D /* MKMapView+SSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7716DBC7B90079B20D /* MKMapView+SSAdditions.m */; };
 		D5BCA78716D238DC00695882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78616D238DC00695882 /* UIKit.framework */; };
@@ -75,6 +144,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
+		D56EB36F170B3CBA007F6884 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodel;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).mom",
+			);
+			script = "echo \"Running mogen\"\n\"${SRCROOT}/Scripts/mogen.sh\"";
+		};
+		D56EB370170B3CBA007F6884 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodeld;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).momd",
+			);
+			script = "echo \"Running mogend\"\n\"${SRCROOT}/Scripts/mogend.sh\"";
+		};
 		D5BCA84016D271B900695882 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
@@ -97,6 +186,16 @@
 		};
 /* End PBXBuildRule section */
 
+/* Begin PBXContainerItemProxy section */
+		D56EB37C170B3D9F007F6884 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D56EB378170B3D9F007F6884 /* KIF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAB07268139719AC008AF393;
+			remoteInfo = KIF;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9CA8035BA2294F2E92E6E3CD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50022AA16D78BD300105242 /* SSLocationReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationReviewsViewController.h; sourceTree = "<group>"; };
@@ -109,6 +208,15 @@
 		D565C59716D3796B00E53194 /* SSLocationMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationMapAnnotation.m; sourceTree = "<group>"; };
 		D565C59F16D38CFA00E53194 /* SSLocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationDetailViewController.h; sourceTree = "<group>"; };
 		D565C5A016D38CFA00E53194 /* SSLocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationDetailViewController.m; sourceTree = "<group>"; };
+		D56EB374170B3CBA007F6884 /* SightSee (Integration Tests).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SightSee (Integration Tests).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D56EB375170B3CBA007F6884 /* SightSee copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SightSee copy-Info.plist"; path = "/Users/rossbeale/Dropbox/Ross/SightSee/SightSee-iOS/SightSee copy-Info.plist"; sourceTree = "<absolute>"; };
+		D56EB378170B3D9F007F6884 /* KIF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KIF.xcodeproj; path = KIF/KIF.xcodeproj; sourceTree = "<group>"; };
+		D56EB383170B3F03007F6884 /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestController.h; path = "Test Classes/TestController.h"; sourceTree = "<group>"; };
+		D56EB384170B3F03007F6884 /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestController.m; path = "Test Classes/TestController.m"; sourceTree = "<group>"; };
+		D56EB387170B3F57007F6884 /* KIFTestScenario+RBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIFTestScenario+RBAdditions.h"; path = "Other Sources/KIFTestScenario+RBAdditions.h"; sourceTree = "<group>"; };
+		D56EB388170B3F57007F6884 /* KIFTestScenario+RBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KIFTestScenario+RBAdditions.m"; path = "Other Sources/KIFTestScenario+RBAdditions.m"; sourceTree = "<group>"; };
+		D56EB38A170B4088007F6884 /* KIFTestStep+RBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIFTestStep+RBAdditions.h"; path = "Test Classes/KIFTestStep+RBAdditions.h"; sourceTree = "<group>"; };
+		D56EB38B170B4088007F6884 /* KIFTestStep+RBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KIFTestStep+RBAdditions.m"; path = "Test Classes/KIFTestStep+RBAdditions.m"; sourceTree = "<group>"; };
 		D57D3C7316DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPreviouslyVisitedLocationsViewController.h; sourceTree = "<group>"; };
 		D57D3C7416DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPreviouslyVisitedLocationsViewController.m; sourceTree = "<group>"; };
 		D57D3C7616DBC7B90079B20D /* MKMapView+SSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+SSAdditions.h"; sourceTree = "<group>"; };
@@ -205,6 +313,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D56EB33A170B3CBA007F6884 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56EB37E170B3DB2007F6884 /* libKIF.a in Frameworks */,
+				D56EB33B170B3CBA007F6884 /* QuartzCore.framework in Frameworks */,
+				D56EB33C170B3CBA007F6884 /* CoreLocation.framework in Frameworks */,
+				D56EB33D170B3CBA007F6884 /* MapKit.framework in Frameworks */,
+				D56EB33E170B3CBA007F6884 /* MobileCoreServices.framework in Frameworks */,
+				D56EB33F170B3CBA007F6884 /* SystemConfiguration.framework in Frameworks */,
+				D56EB340170B3CBA007F6884 /* UIKit.framework in Frameworks */,
+				D56EB341170B3CBA007F6884 /* Foundation.framework in Frameworks */,
+				D56EB342170B3CBA007F6884 /* CoreGraphics.framework in Frameworks */,
+				D56EB343170B3CBA007F6884 /* CoreData.framework in Frameworks */,
+				D56EB344170B3CBA007F6884 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5BCA78016D238DC00695882 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +351,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D56EB379170B3D9F007F6884 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D56EB37D170B3D9F007F6884 /* libKIF.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D56EB37F170B3EC0007F6884 /* Test Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D56EB383170B3F03007F6884 /* TestController.h */,
+				D56EB384170B3F03007F6884 /* TestController.m */,
+				D56EB387170B3F57007F6884 /* KIFTestScenario+RBAdditions.h */,
+				D56EB388170B3F57007F6884 /* KIFTestScenario+RBAdditions.m */,
+				D56EB38A170B4088007F6884 /* KIFTestStep+RBAdditions.h */,
+				D56EB38B170B4088007F6884 /* KIFTestStep+RBAdditions.m */,
+			);
+			name = "Test Classes";
+			sourceTree = "<group>";
+		};
 		D5BCA77A16D238DC00695882 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +379,7 @@
 				D5BCA78516D238DC00695882 /* Frameworks */,
 				D5BCA78416D238DC00695882 /* Products */,
 				E2E27963CBA744928E8E3708 /* Pods.xcconfig */,
+				D56EB375170B3CBA007F6884 /* SightSee copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				D5BCA78316D238DC00695882 /* SightSee.app */,
+				D56EB374170B3CBA007F6884 /* SightSee (Integration Tests).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +395,7 @@
 		D5BCA78516D238DC00695882 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D56EB378170B3D9F007F6884 /* KIF.xcodeproj */,
 				D5BCA83C16D2703B00695882 /* QuartzCore.framework */,
 				D5BCA7FC16D23DDD00695882 /* CoreLocation.framework */,
 				D5BCA7F016D23BEE00695882 /* MapKit.framework */,
@@ -264,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				D5BCA80616D268F100695882 /* Classes */,
+				D56EB37F170B3EC0007F6884 /* Test Classes */,
 				D5BCA81816D268F100695882 /* Other Sources */,
 				D5BCA82016D268F100695882 /* Resources */,
 			);
@@ -522,6 +673,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D56EB2F5170B3CBA007F6884 /* Integration Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D56EB371170B3CBA007F6884 /* Build configuration list for PBXNativeTarget "Integration Tests" */;
+			buildPhases = (
+				D56EB2F6170B3CBA007F6884 /* Sources */,
+				D56EB33A170B3CBA007F6884 /* Frameworks */,
+				D56EB345170B3CBA007F6884 /* Resources */,
+				D56EB36B170B3CBA007F6884 /* TODO/FIXME Warning Script */,
+				D56EB36C170B3CBA007F6884 /* Increment Build Number Script */,
+				D56EB36D170B3CBA007F6884 /* Update Settings.bundle */,
+				D56EB36E170B3CBA007F6884 /* Copy Pods Resources */,
+			);
+			buildRules = (
+				D56EB36F170B3CBA007F6884 /* PBXBuildRule */,
+				D56EB370170B3CBA007F6884 /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = "Integration Tests";
+			productName = SightSee;
+			productReference = D56EB374170B3CBA007F6884 /* SightSee (Integration Tests).app */;
+			productType = "com.apple.product-type.application";
+		};
 		D5BCA78216D238DC00695882 /* SightSee */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5BCA7A516D238DC00695882 /* Build configuration list for PBXNativeTarget "SightSee" */;
@@ -565,14 +739,56 @@
 			mainGroup = D5BCA77A16D238DC00695882;
 			productRefGroup = D5BCA78416D238DC00695882 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D56EB379170B3D9F007F6884 /* Products */;
+					ProjectRef = D56EB378170B3D9F007F6884 /* KIF.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D5BCA78216D238DC00695882 /* SightSee */,
+				D56EB2F5170B3CBA007F6884 /* Integration Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		D56EB37D170B3D9F007F6884 /* libKIF.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKIF.a;
+			remoteRef = D56EB37C170B3D9F007F6884 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		D56EB345170B3CBA007F6884 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56EB346170B3CBA007F6884 /* InfoPlist.strings in Resources */,
+				D56EB347170B3CBA007F6884 /* Default-568h@2x.png in Resources */,
+				D56EB348170B3CBA007F6884 /* Default.png in Resources */,
+				D56EB349170B3CBA007F6884 /* Default@2x.png in Resources */,
+				D56EB34A170B3CBA007F6884 /* Storyboard.storyboard in Resources */,
+				D56EB34B170B3CBA007F6884 /* Settings.bundle in Resources */,
+				D56EB34C170B3CBA007F6884 /* marker_icon.png in Resources */,
+				D56EB34D170B3CBA007F6884 /* marker_icon@2x.png in Resources */,
+				D56EB34E170B3CBA007F6884 /* list_icon.png in Resources */,
+				D56EB34F170B3CBA007F6884 /* list_icon@2x.png in Resources */,
+				D56EB350170B3CBA007F6884 /* PTSansBold.ttf in Resources */,
+				D56EB351170B3CBA007F6884 /* PTSansRegular.ttf in Resources */,
+				D56EB352170B3CBA007F6884 /* starBig.png in Resources */,
+				D56EB353170B3CBA007F6884 /* starBig@2x.png in Resources */,
+				D56EB354170B3CBA007F6884 /* starBigHalf.png in Resources */,
+				D56EB355170B3CBA007F6884 /* starBigHalf@2x.png in Resources */,
+				D56EB356170B3CBA007F6884 /* starBigOff.png in Resources */,
+				D56EB357170B3CBA007F6884 /* starBigOff@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5BCA78116D238DC00695882 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,6 +817,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D56EB36B170B3CBA007F6884 /* TODO/FIXME Warning Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "TODO/FIXME Warning Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+		D56EB36C170B3CBA007F6884 /* Increment Build Number Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\nbuildnum=$(printf \"%04d\" $buildnum)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - not bumping build number.\"\nfi\n";
+		};
+		D56EB36D170B3CBA007F6884 /* Update Settings.bundle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Settings.bundle";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Populating Settings.bundle...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${plist}\")\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue $versionNumber\" \"SightSee/Other Sources/Settings Bundle/Settings.bundle/Root.plist\"\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue $buildNumber\" \"SightSee/Other Sources/Settings Bundle/Settings.bundle/Root.plist\"";
+		};
+		D56EB36E170B3CBA007F6884 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		D5BCA80216D2673800695882 /* TODO/FIXME Warning Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -660,6 +932,53 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D56EB2F6170B3CBA007F6884 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56EB2F7170B3CBA007F6884 /* SSAppDelegate.m in Sources */,
+				D56EB2F8170B3CBA007F6884 /* SSDataManager.m in Sources */,
+				D56EB2F9170B3CBA007F6884 /* SSLocationManager.m in Sources */,
+				D56EB2FA170B3CBA007F6884 /* SSListViewController.m in Sources */,
+				D56EB2FB170B3CBA007F6884 /* SSMapViewController.m in Sources */,
+				D56EB2FC170B3CBA007F6884 /* main.m in Sources */,
+				D56EB2FD170B3CBA007F6884 /* SightSee.xcdatamodeld in Sources */,
+				D56EB2FE170B3CBA007F6884 /* SSSightSeeAPIHTTPClient.m in Sources */,
+				D56EB2FF170B3CBA007F6884 /* _SSCategory.m in Sources */,
+				D56EB300170B3CBA007F6884 /* _SSLocation.m in Sources */,
+				D56EB301170B3CBA007F6884 /* _SSReview.m in Sources */,
+				D56EB302170B3CBA007F6884 /* SSCategory.m in Sources */,
+				D56EB303170B3CBA007F6884 /* SSLocation.m in Sources */,
+				D56EB304170B3CBA007F6884 /* SSReview.m in Sources */,
+				D56EB305170B3CBA007F6884 /* SSCoreDataTableViewController.m in Sources */,
+				D56EB306170B3CBA007F6884 /* SSPreferencesManager.m in Sources */,
+				D56EB307170B3CBA007F6884 /* SSSavingTabBarController.m in Sources */,
+				D56EB308170B3CBA007F6884 /* SSLocationMapAnnotation.m in Sources */,
+				D56EB309170B3CBA007F6884 /* SSLocationDetailViewController.m in Sources */,
+				D56EB30A170B3CBA007F6884 /* SSLocationCell.m in Sources */,
+				D56EB30B170B3CBA007F6884 /* ASStarRatingView.m in Sources */,
+				D56EB30C170B3CBA007F6884 /* NSData+AES256.m in Sources */,
+				D56EB30D170B3CBA007F6884 /* NSData+Base64.m in Sources */,
+				D56EB30E170B3CBA007F6884 /* NSString+Base64.m in Sources */,
+				D56EB30F170B3CBA007F6884 /* SSMapViewCell.m in Sources */,
+				D56EB310170B3CBA007F6884 /* SSReviewInformationCell.m in Sources */,
+				D56EB311170B3CBA007F6884 /* SSBaseLocationCell.m in Sources */,
+				D56EB312170B3CBA007F6884 /* SSDescriptionCell.m in Sources */,
+				D56EB313170B3CBA007F6884 /* SSComposeReviewViewController.m in Sources */,
+				D56EB314170B3CBA007F6884 /* SSPlaceholderTextView.m in Sources */,
+				D56EB315170B3CBA007F6884 /* SSLocationReviewsViewController.m in Sources */,
+				D56EB316170B3CBA007F6884 /* SSReviewCell.m in Sources */,
+				D56EB317170B3CBA007F6884 /* NSString+SHA1.m in Sources */,
+				D56EB318170B3CBA007F6884 /* SBTableAlert.m in Sources */,
+				D56EB319170B3CBA007F6884 /* SSNotificationManager.m in Sources */,
+				D56EB31A170B3CBA007F6884 /* SSPreviouslyVisitedLocationsViewController.m in Sources */,
+				D56EB31B170B3CBA007F6884 /* MKMapView+SSAdditions.m in Sources */,
+				D56EB386170B3F04007F6884 /* TestController.m in Sources */,
+				D56EB389170B3F57007F6884 /* KIFTestScenario+RBAdditions.m in Sources */,
+				D56EB38C170B4088007F6884 /* KIFTestStep+RBAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5BCA77F16D238DC00695882 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -718,6 +1037,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D56EB372170B3CBA007F6884 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2E27963CBA744928E8E3708 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SightSee/Other Sources/SightSee-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(SRCROOT)/KIF/**",
+				);
+				INFOPLIST_FILE = "SightSee copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreData,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					SystemConfiguration,
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "SightSee (Integration Tests)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D56EB373170B3CBA007F6884 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2E27963CBA744928E8E3708 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SightSee/Other Sources/SightSee-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(SRCROOT)/KIF/**",
+				);
+				INFOPLIST_FILE = "SightSee copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreData,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					SystemConfiguration,
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "SightSee (Integration Tests)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		D5BCA7A316D238DC00695882 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -803,6 +1182,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D56EB371170B3CBA007F6884 /* Build configuration list for PBXNativeTarget "Integration Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D56EB372170B3CBA007F6884 /* Debug */,
+				D56EB373170B3CBA007F6884 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D5BCA77E16D238DC00695882 /* Build configuration list for PBXProject "SightSee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
