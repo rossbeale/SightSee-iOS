@@ -10,8 +10,8 @@
 #import "SSPreferencesManager.h"
 #import "NSString+SHA1.h"
 
-#define kDiffbotAPIBaseProductionURLString @"https://sightsee.herokuapp.com/api/v1"
-#define kDiffbotAPIBaseDevelopmentURLString @"http://localhost:3000/api/v1"
+#define kSightSeeAPIBaseProductionURLString @"https://sightsee.herokuapp.com/api/v1"
+#define kSightSeeAPIBaseDevelopmentURLString @"http://localhost:3000/api/v1"
 
 @implementation SSSightSeeAPIHTTPClient
 
@@ -28,11 +28,11 @@
 + (NSString *)baseURL
 {
     if ([[[[NSBundle mainBundle] infoDictionary] objectForKey:@"UseProductionURL"] boolValue]) {
-        DLog(@"Using Production Server: %@", kDiffbotAPIBaseProductionURLString);
-        return kDiffbotAPIBaseProductionURLString;
+        DLog(@"Using Production Server: %@", kSightSeeAPIBaseProductionURLString);
+        return kSightSeeAPIBaseProductionURLString;
     } else {
-        DLog(@"Using Development Server: %@", kDiffbotAPIBaseDevelopmentURLString);
-        return kDiffbotAPIBaseDevelopmentURLString;
+        DLog(@"Using Development Server: %@", kSightSeeAPIBaseDevelopmentURLString);
+        return kSightSeeAPIBaseDevelopmentURLString;
     }
 }
 

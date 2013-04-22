@@ -11,7 +11,7 @@
 
 @protocol SSLocationManagerDelegate <NSObject>
 @optional
-- (void)locationManagedDidUpdateLocationTo:(CLLocation *)location;
+- (void)locationManagerDidUpdateLocationTo:(CLLocation *)location;
 - (void)locationManagerDidFailWithError:(NSError *)error;
 - (void)locationManagerDidChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @end

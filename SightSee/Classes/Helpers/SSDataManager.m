@@ -46,7 +46,7 @@
     [[SSLocationManager sharedInstance] startLocationServices];
 }
 
-- (void)locationManagedDidUpdateLocationTo:(CLLocation *)location
+- (void)locationManagerDidUpdateLocationTo:(CLLocation *)location
 {
     [[SSLocationManager sharedInstance] setDelegate:nil];
     

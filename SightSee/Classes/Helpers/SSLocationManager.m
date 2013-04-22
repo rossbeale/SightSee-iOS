@@ -89,8 +89,8 @@
 - (void)updatedLocation
 {
     // forward on to delegate
-    if ([self.delegate respondsToSelector:@selector(locationManagedDidUpdateLocationTo:)]) {
-        [self.delegate locationManagedDidUpdateLocationTo:_location];
+    if ([self.delegate respondsToSelector:@selector(locationManagerDidUpdateLocationTo:)]) {
+        [self.delegate locationManagerDidUpdateLocationTo:_location];
     }
 }
 

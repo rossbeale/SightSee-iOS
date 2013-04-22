@@ -219,6 +219,8 @@
                 [[SSDataManager sharedInstance] fetchData];
             }];
             
+        } else {
+            [[SSDataManager sharedInstance] fetchData];
         }
         
     }];

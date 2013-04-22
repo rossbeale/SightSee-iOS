@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>ac.uk.reading.cp004138.sightsee</string>
+	<string>uk.ac.reading.cp004138.sightsee</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -50,6 +50,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UseProductionURL</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

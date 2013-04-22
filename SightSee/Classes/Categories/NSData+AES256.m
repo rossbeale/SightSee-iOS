@@ -24,9 +24,6 @@
 	
 	NSUInteger dataLength = [self length];
 	
-	//See the doc: For block ciphers, the output size will always be less than or 
-	//equal to the input size plus the size of one block.
-	//That's why we need to add the size of one block here
 	size_t bufferSize = dataLength + kCCBlockSizeAES128;
 	void *buffer = malloc(bufferSize);
 	
@@ -66,9 +63,6 @@
         data = [self subdataWithRange:NSMakeRange(16, self.length-16)];
     }
     
-	//See the doc: For block ciphers, the output size will always be less than or
-	//equal to the input size plus the size of one block.
-	//That's why we need to add the size of one block here
 	size_t bufferSize = data.length + kCCBlockSizeAES128;
 	void *buffer = malloc(bufferSize);
 	

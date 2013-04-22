@@ -50,6 +50,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UseProductionURL</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

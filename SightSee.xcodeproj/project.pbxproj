@@ -80,10 +80,10 @@
 		D56EB357170B3CBA007F6884 /* starBigOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3EE3E16D3E3F200E81918 /* starBigOff@2x.png */; };
 		D56EB37E170B3DB2007F6884 /* libKIF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D56EB37D170B3D9F007F6884 /* libKIF.a */; };
 		D56EB386170B3F04007F6884 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56EB384170B3F03007F6884 /* TestController.m */; };
-		D56EB389170B3F57007F6884 /* KIFTestScenario+RBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D56EB388170B3F57007F6884 /* KIFTestScenario+RBAdditions.m */; };
 		D56EB38C170B4088007F6884 /* KIFTestStep+RBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D56EB38B170B4088007F6884 /* KIFTestStep+RBAdditions.m */; };
 		D57D3C7516DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7416DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m */; };
 		D57D3C7816DBC7B90079B20D /* MKMapView+SSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7716DBC7B90079B20D /* MKMapView+SSAdditions.m */; };
+		D57DC09C170B76100086FE1E /* KIFTestScenario+RBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D57DC09B170B76100086FE1E /* KIFTestScenario+RBAdditions.m */; };
 		D5BCA78716D238DC00695882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78616D238DC00695882 /* UIKit.framework */; };
 		D5BCA78916D238DC00695882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78816D238DC00695882 /* Foundation.framework */; };
 		D5BCA78B16D238DC00695882 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78A16D238DC00695882 /* CoreGraphics.framework */; };
@@ -213,14 +213,14 @@
 		D56EB378170B3D9F007F6884 /* KIF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KIF.xcodeproj; path = KIF/KIF.xcodeproj; sourceTree = "<group>"; };
 		D56EB383170B3F03007F6884 /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestController.h; path = "Test Classes/TestController.h"; sourceTree = "<group>"; };
 		D56EB384170B3F03007F6884 /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestController.m; path = "Test Classes/TestController.m"; sourceTree = "<group>"; };
-		D56EB387170B3F57007F6884 /* KIFTestScenario+RBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIFTestScenario+RBAdditions.h"; path = "Other Sources/KIFTestScenario+RBAdditions.h"; sourceTree = "<group>"; };
-		D56EB388170B3F57007F6884 /* KIFTestScenario+RBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KIFTestScenario+RBAdditions.m"; path = "Other Sources/KIFTestScenario+RBAdditions.m"; sourceTree = "<group>"; };
 		D56EB38A170B4088007F6884 /* KIFTestStep+RBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIFTestStep+RBAdditions.h"; path = "Test Classes/KIFTestStep+RBAdditions.h"; sourceTree = "<group>"; };
 		D56EB38B170B4088007F6884 /* KIFTestStep+RBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KIFTestStep+RBAdditions.m"; path = "Test Classes/KIFTestStep+RBAdditions.m"; sourceTree = "<group>"; };
 		D57D3C7316DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPreviouslyVisitedLocationsViewController.h; sourceTree = "<group>"; };
 		D57D3C7416DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPreviouslyVisitedLocationsViewController.m; sourceTree = "<group>"; };
 		D57D3C7616DBC7B90079B20D /* MKMapView+SSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+SSAdditions.h"; sourceTree = "<group>"; };
 		D57D3C7716DBC7B90079B20D /* MKMapView+SSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+SSAdditions.m"; sourceTree = "<group>"; };
+		D57DC09A170B76100086FE1E /* KIFTestScenario+RBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIFTestScenario+RBAdditions.h"; path = "Test Classes/KIFTestScenario+RBAdditions.h"; sourceTree = "<group>"; };
+		D57DC09B170B76100086FE1E /* KIFTestScenario+RBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KIFTestScenario+RBAdditions.m"; path = "Test Classes/KIFTestScenario+RBAdditions.m"; sourceTree = "<group>"; };
 		D5BCA78316D238DC00695882 /* SightSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BCA78616D238DC00695882 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D5BCA78816D238DC00695882 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -364,8 +364,8 @@
 			children = (
 				D56EB383170B3F03007F6884 /* TestController.h */,
 				D56EB384170B3F03007F6884 /* TestController.m */,
-				D56EB387170B3F57007F6884 /* KIFTestScenario+RBAdditions.h */,
-				D56EB388170B3F57007F6884 /* KIFTestScenario+RBAdditions.m */,
+				D57DC09A170B76100086FE1E /* KIFTestScenario+RBAdditions.h */,
+				D57DC09B170B76100086FE1E /* KIFTestScenario+RBAdditions.m */,
 				D56EB38A170B4088007F6884 /* KIFTestStep+RBAdditions.h */,
 				D56EB38B170B4088007F6884 /* KIFTestStep+RBAdditions.m */,
 			);
@@ -974,8 +974,8 @@
 				D56EB31A170B3CBA007F6884 /* SSPreviouslyVisitedLocationsViewController.m in Sources */,
 				D56EB31B170B3CBA007F6884 /* MKMapView+SSAdditions.m in Sources */,
 				D56EB386170B3F04007F6884 /* TestController.m in Sources */,
-				D56EB389170B3F57007F6884 /* KIFTestScenario+RBAdditions.m in Sources */,
 				D56EB38C170B4088007F6884 /* KIFTestStep+RBAdditions.m in Sources */,
+				D57DC09C170B76100086FE1E /* KIFTestScenario+RBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

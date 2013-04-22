@@ -40,9 +40,4 @@
     self.ratingView.canEdit = NO;
 }
 
-- (void)prepareForReuse
-{
-    
-}
-
 @end

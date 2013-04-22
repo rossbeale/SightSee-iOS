@@ -3,6 +3,7 @@
 //  SightSee
 //
 //  Created by Ross Beale on 20/02/2013.
+//  Adapted from http://www.lantean.co/encrypting-and-decrypting-nsdata-with-aes256/
 //  Copyright (c) 2013 Ross Beale. All rights reserved.
 //
 

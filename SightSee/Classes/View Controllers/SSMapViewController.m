@@ -14,10 +14,6 @@
 #define kCategoryTableView 100
 
 @interface SSMapViewController ()
-/**
- * REQUIRED method, must be overriden by subclasses. Return the name of the entity
- * you want to display in the tableview.
- */
 - (NSString *)entityName;
 @end
 
