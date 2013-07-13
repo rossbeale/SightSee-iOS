@@ -84,6 +84,7 @@
 		D57D3C7516DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7416DBBBC30079B20D /* SSPreviouslyVisitedLocationsViewController.m */; };
 		D57D3C7816DBC7B90079B20D /* MKMapView+SSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D57D3C7716DBC7B90079B20D /* MKMapView+SSAdditions.m */; };
 		D57DC09C170B76100086FE1E /* KIFTestScenario+RBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D57DC09B170B76100086FE1E /* KIFTestScenario+RBAdditions.m */; };
+		D59EFBD81725755200F00479 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D59EFBD71725755200F00479 /* Location.gpx */; };
 		D5BCA78716D238DC00695882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78616D238DC00695882 /* UIKit.framework */; };
 		D5BCA78916D238DC00695882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78816D238DC00695882 /* Foundation.framework */; };
 		D5BCA78B16D238DC00695882 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCA78A16D238DC00695882 /* CoreGraphics.framework */; };
@@ -221,6 +222,7 @@
 		D57D3C7716DBC7B90079B20D /* MKMapView+SSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+SSAdditions.m"; sourceTree = "<group>"; };
 		D57DC09A170B76100086FE1E /* KIFTestScenario+RBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KIFTestScenario+RBAdditions.h"; path = "Test Classes/KIFTestScenario+RBAdditions.h"; sourceTree = "<group>"; };
 		D57DC09B170B76100086FE1E /* KIFTestScenario+RBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KIFTestScenario+RBAdditions.m"; path = "Test Classes/KIFTestScenario+RBAdditions.m"; sourceTree = "<group>"; };
+		D59EFBD71725755200F00479 /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D5BCA78316D238DC00695882 /* SightSee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightSee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BCA78616D238DC00695882 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D5BCA78816D238DC00695882 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -544,6 +546,7 @@
 				D5BCA81C16D268F100695882 /* main.m */,
 				D5BCA81E16D268F100695882 /* SightSee-Info.plist */,
 				D5BCA81F16D268F100695882 /* SightSee-Prefix.pch */,
+				D59EFBD71725755200F00479 /* Location.gpx */,
 			);
 			path = "Other Sources";
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				D5E3EE4216D3E3F200E81918 /* starBigHalf@2x.png in Resources */,
 				D5E3EE4316D3E3F200E81918 /* starBigOff.png in Resources */,
 				D5E3EE4416D3E3F200E81918 /* starBigOff@2x.png in Resources */,
+				D59EFBD81725755200F00479 /* Location.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

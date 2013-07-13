@@ -52,7 +52,7 @@
             if (self.review.comment.length > 0) {
                 CGSize constraint = CGSizeMake(kTextFrameWidth, 20000.0f);
                 CGSize size = [self.review.comment sizeWithFont:[UIFont fontWithName:@"PTSans-Regular" size:self.commentLabel.font.pointSize] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-                self.commentLabel.frame = CGRectMake(self.commentLabel.frame.origin.x, self.commentLabel.frame.origin.y, size.width, size.height);
+                self.commentLabel.frame = CGRectMake(self.commentLabel.frame.origin.x, self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, size.height);
                 self.commentLabel.text = self.review.comment;
             }
             

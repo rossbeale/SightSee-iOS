@@ -784,7 +784,6 @@ typedef CGPoint KIFDisplacement;
     [steps addObject:[KIFTestStep stepToWaitForTimeInterval:0.5 description:@"Wait for media picker view controller to be pushed."]];
     
     // Tap the desired photo in the grid
-    // TODO: This currently only works for the first page of photos. It should scroll appropriately at some point.
     const CGFloat headerHeight = 64.0;
     const CGSize thumbnailSize = CGSizeMake(75.0, 75.0);
     const CGFloat thumbnailMargin = 5.0;
